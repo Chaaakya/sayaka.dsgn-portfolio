@@ -1,270 +1,168 @@
-/* ======== 共通設定（全体） ======== */
-* {
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
-body {
-  font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
-  margin: 0;
-  padding-bottom: 140px;
-  background-color: #FAF8F4;
-  color: #5C4432;
-}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAYAKA TANI Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header>
+  <div class="logo-area">
+    <p class="tagline">想いをカタチにするシゴト</p>
+    <div class="name-job">
+      <h1>SAYAKA TANI</h1>
+      <p class="sub">WEBデザイナー・コーダー</p>
+    </div>
+  </div>
+  </header>
+   <!-- ナビ -->
+  <nav>
+    <ul>
+      <li><a href="#top">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#works">WORKS</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+</header>
 
-/* ------------------- ヘッダー（ナビゲーション） ------------------- */
-header {
-  position: fixed; /* ヘッダーをページ上部に固定して、スクロールしても表示されるようにする */
-  top: 0;
-  left: 0;
-  width: 100%; /* ヘッダーの横幅を画面いっぱいにする */
-  z-index: 1000; /* 他の要素より前に表示されるようにする */
-}
+  <!-- メインビジュアル部分（トップ画像） -->
+<section id="top" class="mainvisual">
+    <img src="images/mainvisual-small.jpg" alt="自身のホーム写真です" />
+</section>
 
-/* ヘッダー内のナビゲーションメニューの設定（リスト） */
-nav ul {
-  display: flex; /* メニュー項目を横並びにする */
-  justify-content: flex-end; /* メニュー全体を右端に寄せる */
-  gap: 20px; /* メニュー項目の間に20pxの間隔をあける */
-  list-style: none; /* デフォルトの「・」マークを消す */
-  padding: 20px 40px; /* 上下に20px、左右に40pxの内側余白をつける */
-}
+  <!-- ABOUTセクション -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>ABOUT</h2>
+        <hr class="section-divider" />
+        <h3>私について</h3>
+        <div class="about-box">
+          <p>
+            <span class="about-name">たに さやか</span><br />
+            神奈川県生まれ、東京都在住。<br />
+            心理学を学んだ後、保険会社での営業職を経て、<br />
+            現在はIT企業の企画部でシステム運営や営業支援に携わりながら、<br />
+            フリーランスとしても活動しています。<br /><br />
+            <span class="about-quote">“言葉とデザインで想いを届ける”</span>ことを大切に、<br />
+            シンプルで信頼感のある表現を心がけています。<br />
+            ご相談には一つひとつ丁寧に向き合い、<br />
+            想いに寄り添った制作を目指しています。
+          </p>
+        </div>
+      </div>
+      <div class="about-image">
+        <img src="images/about.jpg" alt="プロフィール写真" />
+      </div>
+    </div>
+  </section>
 
-/* ナビゲーションリンク */
-nav ul a {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  color: #5C4432;
-  padding: 5px 10px;
-  font-weight: bold;
-  text-align: center;
-  transition: color 0.3s ease;
-}
+  <!-- WORKSセクション -->
+  <section id="works" class="works-section">
+    <h2>WORKS</h2>
+    <hr class="section-divider" />
+    <h3>制作実績</h3>
+    <div class="works-container">
+      <div class="work-item">
+        <a href="works-detail1.html">
+        <img src="images/top.png" alt="制作実績1" />
+        <p class="work-description">My Portfolio Site</p>
+        </a>
+      </div>
+      <div class="work-item">
+        <div class="work-placeholder">
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+        <p class="work-description">（準備中の作品）</p>
+      </div>
+      <div class="work-item">
+        <div class="work-placeholder">
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+        <p class="work-description">（準備中の作品）</p>
+      </div>
+      <div class="work-item">
+        <div class="work-placeholder">
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+        <p class="work-description">（準備中の作品）</p>
+      </div>
+      <div class="work-item">
+        <div class="work-placeholder">
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+        <p class="work-description">（準備中の作品）</p>
+      </div>
+      <div class="work-item">
+        <div class="work-placeholder">
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+        <p class="work-description">（準備中の作品）</p>
+      </div>
+    </div>
+    <!-- Moreリンク -->
+    <div class="more-link">
+      <a href="works-list.html" class="btn-more">MORE</a>
+    </div>
+  </section>
 
-/* 下線アニメーション */
-nav ul a::after {
-  content: "";
-  position: absolute;
-  left: 10%;
-  bottom: 0;
-  width: 80%;
-  height: 2px;
-  background-color: #2A5F4C; /* 下線の緑 */
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.3s ease;
-}
+  <!-- CONTACTセクション -->
+  <section id="contact" class="contact-section">
+    <h2>CONTACT</h2>
+    <hr class="section-divider" />
+    <h3>問い合わせ</h3>
+    <div class="contact-box">
+      <p>
+        サイトをご覧頂き、ありがとうございます。<br />
+        お仕事のご相談・ご依頼など、お気軽にご連絡ください。<br />
+        内容を確認の上、通常2〜3営業日以内にご返信いたします。
+      </p>
+      <form action="https://formspree.io/f/abcdxyz" method="POST" class="contact-form">
+         <div class="form-fields">
+         <label for="name">お名前 / NAME</label>
+          <input type="text" id="name" name="name" required />
 
-/* ホバー効果（文字色・下線） */
-nav ul a:hover {
-  color: #2A5F4C; /* 濃い緑に変化 */
-}
+          <label for="email">メールアドレス / EMAIL</label>
+          <input type="email" id="email" name="email" required />
 
-nav ul a:hover::after {
-  transform: scaleX(1);
-}
+          <label for="message">本文 / MESSAGE</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
 
+         <label class="privacy-agreement">
+         <input type="checkbox" name="agree" required />
+          プライバシーポリシーに同意して送信する
+          </label>
+        <button type="submit">送信</button>
+        </div>
+      </form>
+    </div>
+  </section>
 
-
-/* ------------------- WORKSセクション ------------------- */
-.works {
-  text-align: center;
-  padding: 150px 20px 60px;
-  background: linear-gradient(to bottom, #EDE6DA 0 970px, #FAF8F4 970px 100%);
-}
-.section-title {
-  font-size: 28px;
-  font-weight: bold; /* タイトルを太字に */
-  color: #5C4432;
-  margin-bottom: 10px; /* タイトルの下に10pxの余白をあける */
-}
-.section-divider {
-  height: 2px;
-  background-color: #5C4432; /* こげ茶色 */
-  border: none;
-  margin: 0px auto 0px; /* 上10px・下30px、中央寄せ */
-  display: block; /* ブロック要素にして中央寄せ */
-  width: fit-content; /* コンテンツの幅に合わせる */
-}
-.subtitle {
-  font-size: 14px;
-  font-weight: bold;
-  color: #5C4432;
-  margin-bottom: 60px;
-}
-
-.project-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 60px;
-  color: #5C4432;
-}
-
-/* ------------------- メインビジュアル ------------------- */
-.mainvisual img {
-  display: block;
-  margin: 0 auto; /* 画像を中央に配置 */
-  width: 80%;
-  max-width: 700px;
-  border: 1px solid #5C4432;
-  border-radius: 8px; /* 角を丸くする */
-}
-
-/* ------------------- サイトリンク ------------------- */
-.site-link {
-  text-align: center;
-  margin-top: 40px;
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.site-link a {
-  color: #5C4432;
-  text-decoration: none;
-  font-weight: normal;
-}
-
-/* ------------------- 情報ボックス ------------------- */
-.info-boxes {
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-  margin: 80px 0;
-  flex-wrap: wrap;
-}
-
-.info-box {
-  background-color: #C5EBDD;
-  padding: 10px 20px;
-  border-radius: 8px; /* 角を丸くする */
-  font-size: 14px;
-}
-
-/* ------------------- 概要・コンセプト ------------------- */
-.overview {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 160px; /* 写真と文字の余白を広くとる */
-  max-width: 1600px; /* 全体の最大幅を設定 */
-  margin-left: auto; /* 左右中央寄せ */
-  margin-right: auto; /* 左右中央寄せ */
-}
-
-.overview-left img {
-  width: 450px;
-  border: 1px solid #5C4432;
-}
-
-.overview-right {
-  max-width: 700px;
-  text-align: left;
-  flex: 1; /* 残りのスペースを占める */
-  min-width: 400px; /* 最小幅を設定 */
-}
-/* 見出し（コンセプト・ターゲット・目的 など） */
-.overview-right h4 {
-  font-size: 20px;
-  color: #5C4432;
-  margin-top: 60px;
-  border-left: 5px solid #C5EBDD;
-  padding-left: 10px;
-  max-width: none; /* 見出しの最大幅を解除 */
-}
-
-.overview-right p {
-  font-size: 14px;
-  line-height: 1.8;
-  max-width: 1200px; /* テキストの最大幅を設定 */
-}
-/*-------------------- コンセプトの強調要素--------------------*/
-.overview-massage,
-.overview-aim {
-  font-size: 14px;
-  font-weight: bold;
-  color: #2A5F4C; /* アクセントカラー（深緑） */
-  line-height: 1; /* ←行間も詰めたい場合は追加 */
-}
-/* ------------------- BACKボタン ------------------- */
-.back-button {
-  text-align: center;
-  margin: 100px 0 100px; /* ← 下に余白をしっかりつける */
-}
-.back-button a {
-  display: inline-block;
-  background-color: #C5EBDD;       /* 薄緑背景 */
-  color: #5C4432;                  /* こげ茶文字 */
-  border: 1px solid #C5EBDD;       /* 薄緑の枠線 */
-  width: 150px;
-  height: 50px;
-  line-height: 50px;
-  font-weight: bold;
-  font-size: 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  user-select: none;
-}
-
-.back-button a:hover {
-  background-color: #5C4432;       /* ホバー時：背景こげ茶 */
-  color: #C5EBDD;                  /* ホバー時：文字色薄緑 */
-  border-color: #5C4432;
-  text-decoration: none;
-}
-/*-----------------------Footer--------------------------*/
-footer {
-  padding: 20px 60px;
-  background: #C5EBDD; /* フッターの背景色 */
-  font-size: 10px; 
-  display: flex;
-  justify-content: space-between; /* 左右に分ける */
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-.footer-top {
-  display: flex;
-  justify-content: space-between;   /* 左右に分ける */
-  align-items: flex-start; /* 左右に分ける */
-  flex-wrap: wrap; /* アイコンとテキストを横並びに */
-}
-.footer-left{
-  margin-bottom: 0px; /* 下の要素との距離を調整 */
-}
-.footer-right {
-  margin-bottom: 0px;
-  text-align: right; /* 右揃えにする */
-}
-/* アイコン設定 */
-.icons img {
-  width: 20px;   /* アイコンの幅を揃える */
-  height: 20px; /* 高さも揃える */
-  margin-right: 10px; /* アイコン間のスペース */
-  vertical-align: middle; /* アイコンとテキストの縦位置を揃える */
-}
-/* コピーライト設定 */
-footer .copyright {
-  width: 100%;
-  text-align: center;
-  margin-top: 0px; /* 上の要素との距離を調整 */
-  font-size: 8px; 
-}
-
-/* レスポンシブ対応 */
-@media screen and (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-  }
-  .works-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .work-item {
-    width: 90%;
-  }
-}
+  <!-- フッター -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-left">
+        <p>SAYAKA TANI</p>
+        <div class="icons">
+          <a href="https://www.instagram.com/sayaka.dsgn" target="_blank" rel="noopener noreferrer">
+            <img src="images/instagram-brands.svg" alt="Instagram" />
+          </a>
+          <a href="mailto:sayaka.dsgn@gmail.com">
+            <img src="images/email.svg" alt="Email" />
+          </a>
+        </div>
+      </div>
+    </div>
+      <div class="footer-right">
+      <p>EMAIL : SAYAKA.DSGN@GMAIL.COM</p>
+      <p>DM : @SAYAKA_DSGN</p>
+    </div>
+    <div class="copyright">
+      <p>© SAYAKA TANI</p>
+    </div>
+  </footer>
+</body>
+</html>
