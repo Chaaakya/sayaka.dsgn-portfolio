@@ -1,0 +1,286 @@
+/* ------------------- ページ全体の基本設定 ------------------- */
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', sans-serif; /* 文字の見た目をスッキリしたゴシック体にする */
+  margin: 0; /* ページの上下左右の余白をなくす */
+  background-color: #FAF8F4; /* 背景を白に設定 */
+  color: #5C4432; /* 全体の文字色をこげ茶に設定 */
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* ← 横スクロール防止 */
+}
+* {
+  box-sizing: border-box;
+}
+
+/* ------------------- ヘッダー（ナビゲーション）の設定 ------------------- */
+header {
+  position: fixed; /* ヘッダーをページ上部に固定して、スクロールしても表示されるようにする */
+  top: 0;
+  left: 0;
+  width: 100%; /* ヘッダーの横幅を画面いっぱいにする */
+  z-index: 1000; /* 他の要素より前に表示されるようにする */
+  background-color: #FAF8F4; /* ヘッダーの背景を白に（透明だと中身が見にくいため） */
+}
+
+/* ヘッダー内のナビゲーションメニューの設定（リスト） */
+nav ul {
+  display: flex; /* メニュー項目を横並びにする */
+  justify-content: flex-end; /* メニュー全体を右端に寄せる */
+  gap: 20px; /* メニュー項目の間に20pxの間隔をあける */
+  list-style: none; /* デフォルトの「・」マークを消す */
+  padding: 20px 40px; /* 上下に20px、左右に40pxの内側余白をつける */
+}
+
+/* ナビゲーションリンク */
+nav ul a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #5C4432;
+  padding: 5px 10px;
+  font-weight: bold;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+/* 下線アニメーション */
+nav ul a::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  bottom: 0;
+  width: 80%;
+  height: 2px;
+  background-color: #2A5F4C; /* 下線の緑 */
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/* ホバー効果（文字色・下線） */
+nav ul a:hover {
+  color: #2A5F4C; /* 濃い緑に変化 */
+}
+
+nav ul a:hover::after {
+  transform: scaleX(1);
+}
+
+/*----------------- WORKSタイトルスタイル------------------ */
+.works-section {
+  text-align: center; /* セクション内のテキストや要素を中央揃えにする */
+  padding: 150px 20px; /* 上下に60px、左右に20pxの余白をつける */
+  background-color: #FAF8F4; /* 背景色を白に設定 */
+}
+
+/* WORKSセクションのメイン見出し */
+.works-section h2{
+  font-size: 28px; /* 文字を大きくして目立たせる */
+  font-weight: bold; /* 太字にする */
+  color: #5C4432; /* こげ茶色で統一感を出す */
+  margin-bottom: 10px; /* 下に20pxの余白をあける */
+}
+.section-divider {
+  height: 2px;
+  background-color: #5C4432; /* こげ茶色 */
+  border: none;
+  margin: 0px auto 0px; /* 上10px・下30px、中央寄せ */
+  width: fit-content; /* ← 文字幅に合わせる */
+}
+/* WORKSセクション内の小見出し（カテゴリ名など） */
+.works-section h3 {
+  font-size: 14px; /* 少し小さめの見出し */
+  color: #5C4432; /* 同じくこげ茶色 */
+  margin-bottom: 60px; /* 下にも余白をあける */
+  font-weight: bold; /* 見出しを太字に */
+}
+
+/* ------------------- カテゴリーの設定 ------------------- */
+.category-buttons {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.category-buttons button {
+  background-color: #C5EBDD;       /* h4の薄緑背景と同じ */
+  color: #5C4432;                  /* こげ茶文字 */
+  border: 1px solid #C5EBDD;      /* h4の枠線と同じ */
+  width: 150px; /* 固定幅（必要に応じて調整） */
+  height: 50px; /* 固定高さで統一感 */
+  padding: 0 20px;
+  margin: 0 120px; /* ボタンの横幅調整 */
+  font-weight: bold;
+  border-radius: 8px;   /* 角丸 */
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.category-buttons button:hover {
+  background-color: #5C4432;       /* ホバー時は背景こげ茶 */
+  color: #C5EBDD;                  /* 文字が薄緑に */
+  border-color: #5C4432;
+}
+/* スムーズスクロール設定 */
+html {
+  scroll-behavior: smooth;
+}
+/* スクロール位置を調整するための余白 */
+.work-category > h4 {
+  scroll-margin-top: 100px;  /* 必要に応じて調整 */
+}
+
+
+/* ------------------- WORK セクション全体の設定 ------------------- */
+/* カテゴリタイトル（枠なし・左寄せ） */
+.work-category > h4 {
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin-top: 130px;
+  margin-bottom: 80px; /* 上下の余白を調整 */
+  margin-left: 150px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #5C4432;
+  background-color: #C5EBDD;      /* ← 背景を削除 */
+  padding: 5px 20px ;            /* ← 内側余白も削除 */
+  height: auto;          /* ← 高さ制限も解除 */
+  line-height: 1.5;     /* ← 行間を調整 */
+  border-radius: 8px;   /* ← 角丸を追加 */
+  border: none;          /* ← 万が一の枠線削除 */
+}
+
+/* 横線の装飾はそのまま使う場合 */
+.work-category > h4::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  width: 1400px;
+  height: 1px;
+  background-color: #5C4432;
+  transform: translateY(-50%);
+}
+
+.works-item-wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 100px;
+  row-gap: 60px; /* ← 追加 */
+  width: 100%;
+}
+.work-set {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 画像だけ囲むボックス */
+.work-item {
+  width: 500px;
+  height: 300px; /* 高さを固定 */
+  border: 1px solid #5C4432;
+  border-radius:8px;
+  overflow: hidden;
+  background-color: #FAF8F4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 作品のリンク全体を囲むaタグのスタイル */
+.work-set a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 画像 */
+.work-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 画像のアスペクト比を保ちながらボックスに収める */
+  display: block;
+}
+/* 説明文を中央に、画像の外に */
+.work-description {
+  width: 500px;
+  text-align: center;
+  font-size: 16px;
+  color: #5C4432;
+  margin-top: 10px;
+  margin-bottom: 40px; /* 次のアイテムとの余白 */
+}
+.work-item.placeholder {
+  background-color: #ccc; /* プレースホルダーの背景色 */
+  border: 1px dashed #999;
+  position: relative;
+  width: 500px;
+  height: 300px; /* 高さを固定 */
+  border-radius: 8px; /* 角を丸く */
+}
+
+/* COMING SOON テキスト */
+.coming-soon {
+  color: #5C4432;
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+/*-----------------------Footer--------------------------*/
+footer {
+  padding: 20px 60px;
+  background: #C5EBDD; /* フッターの背景色 */
+  font-size: 10px; 
+  display: flex;
+  justify-content: space-between; /* 左右に分ける */
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;   /* 左右に分ける */
+  align-items: flex-start; /* 左右に分ける */
+  flex-wrap: wrap; /* アイコンとテキストを横並びに */
+}
+.footer-left{
+  margin-bottom: 0px; /* 下の要素との距離を調整 */
+}
+.footer-right {
+  margin-bottom: 0px;
+  text-align: right; /* 右揃えにする */
+}
+/* アイコン設定 */
+.icons img {
+  width: 20px;   /* アイコンの幅を揃える */
+  height: 20px; /* 高さも揃える */
+  margin-right: 10px; /* アイコン間のスペース */
+  vertical-align: middle; /* アイコンとテキストの縦位置を揃える */
+}
+/* コピーライト設定 */
+footer .copyright {
+  width: 100%;
+  text-align: center;
+  margin-top: 0px; /* 上の要素との距離を調整 */
+  font-size: 8px; 
+}
+@media screen and (max-width: 768px) {
+  .works-item-wrap {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .work-description {
+    width: 90%;
+  }
+  footer {
+    padding: 20px;
+  }
+}

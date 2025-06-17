@@ -1,0 +1,404 @@
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+  margin: 0;
+  background-color: #FAF8F4;
+  color: #5C4432;
+}
+/*ヘッター*/
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 60px;
+  background: #FAF8F4;
+}
+.logo-area {
+  line-height: 1.2; /* 行間を調整 */
+  padding-top: 5px; /* ロゴの上の余白 */
+}
+
+/* 想いをカタチにするシゴト */
+.tagline {
+  font-size: 25spx; 
+  color: #5C4432;
+  font-weight: bold;
+  margin-bottom: 0px; /* タグラインと名前の間のスペース */
+  margin-top: 0px; /* タグラインと名前の間のスペース */
+}
+/*Sayaka・Webデザイナー・コーダーの間隔*/
+.name-job {
+  display: flex;
+  align-items: baseline; /* 高さを文字の下の線で揃える */
+  gap: 15px; /* 文字間のスペース */
+}
+/* Sayaka tani */
+.logo-area h1 {
+  font-size: 45px; 
+  font-weight: bold;/*太文字*/
+}
+/*Webデザイナー・コーダー*/
+.logo-area .sub {
+  font-size: 15px;
+  font-weight: bold;
+}
+/*--------------------Main Visual-------------------------*/
+.mainvisual img {
+  width: 80%;
+  height: 20%; /* 高さを90%に設定 */
+  object-fit: cover; /* 画像のアスペクト比を保ちながらサイズ調整 */
+  display: block; /* 画像をブロック要素にして中央寄せ */
+  margin-bottom: 0; /* 不要な下余白をなくす */
+}
+/*--------------------ナビ-------------------------*/
+nav {
+  position: fixed; /* ヘッダーをページ上部に固定して、スクロールしても表示されるようにする */
+  top: 0; 
+  right: 0;
+  z-index: 1000; /* 他の要素より前に表示されるようにする */
+  font-size: 16px;
+}
+nav a { 
+  color: #5C4432; /*深緑色*/
+  font-weight: bold; /*太文字*/
+  text-align: center; /*中央揃え*/
+}
+/* ヘッダー内のナビゲーションメニューの設定（リスト） */
+nav ul {
+  display: flex; /* メニュー項目を横並びにする */
+  justify-content: flex-end; /* メニュー全体を右端に寄せる */
+  gap: 20px; /* メニュー項目の間に20pxの間隔をあける */
+  list-style: none; /* デフォルトの「・」マークを消す */
+  padding-top: 20px;
+  padding-right: 40px; /* 上下に20px、左右に40pxの内側余白をつける */
+}
+
+/* ナビゲーションリンク */
+nav ul a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #5C4432;
+  padding: 5px 10px;
+  font-weight: bold;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+/* 下線アニメーション */
+nav ul a::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  bottom: 0;
+  width: 80%;
+  height: 2px;
+  background-color: #2A5F4C; /* 下線の緑 */
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/* ホバー効果（文字色・下線） */
+nav ul a:hover {
+  color: #2A5F4C; /* 濃い緑に変化 */
+}
+
+nav ul a:hover::after {
+  transform: scaleX(1);
+}
+/*--------------------セクション見出しスタイル（共通）-------------------------*/
+/* ABOUT, WORKS, CONTACT のタイトル共通スタイル */
+.about-text h2, .works-section h2, .contact-section h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* 見出し下の区切り線 */
+.section-divider {
+  width: 150px;
+  height: 2px;
+  background-color: #5C4432;  /* こげ茶色 */
+  border: none;
+  margin: 0 auto 10px;        /* 中央寄せ＋下余白 */
+}
+
+/* 小見出し（例：私について） */
+.about-text h3, .works-section h3, .contact-section h3 {
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+
+/*-------------------- About セクション --------------------*/
+
+/* セクション全体の背景と余白 */
+.about-section {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;        /* 上下40px・左右20pxの余白 */
+  background: #C5EBDD;       /* 薄緑背景 */
+}
+
+/* コンテンツ全体の横並び配置（テキスト＋写真） */
+.about-container {
+  display: flex;
+  max-width: 1200px;
+  gap: 200px;   /* テキストと写真の間隔 */
+  align-items: center; /* 縦方向の中央揃え */
+}
+
+/* 自己紹介文エリア */
+.about-text {
+  flex: 1;
+  text-align: center; /* テキストを中央揃え */
+  padding: 0px 0px 60px; /* 上下の余白 */
+}
+
+.about-image {
+  flex-shrink: 0; /* 写真のサイズを固定 */
+}
+
+/* 自己紹介写真 */
+.about-image img {
+  width: 400px;
+  border-radius: 10px; /* 角を丸く */
+  margin: auto; /* 中央寄せ */
+}
+
+/* ----------------自己紹介ボックス内のデザイン ----------------*/
+/* 自己紹介文の外枠ボックス */
+.about-box {
+  background: #FAF8F4; /* 薄茶の背景 */
+  box-shadow: 5px 5px 5px rgba(92, 68, 50, 0.3); /* 影で浮かせる */
+  padding: 25px; /* 内側の余白 */
+  width: 500px; /* 固定幅 */
+  height: 450px; /* 固定高さ */
+  display: flex; /* フレックスボックスで配置 */
+  align-items: center; /* 中央揃え */
+  justify-content: center; /* 中央揃え */
+  margin: 0 auto; /* 中央寄せ */
+  border-radius: 10px;  /* 角を丸く */
+  border: 1px solid #5C4432; /* こげ茶の枠線 */
+}
+
+/* 全体テキストスタイル */
+.about-box p {
+  font-size: 16px;
+  line-height: 2; /* 行間を広くとって読みやすく */
+}
+/*-------------------- 自己紹介内の強調要素--------------------*/
+/* 名前を強調して表示 */
+.about-name {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  line-height: 1; /* ←行間も詰めたい場合は追加 */
+}
+
+/* “想いを届ける”など、信念や引用を強調 */
+.about-quote {
+  font-weight: bold;
+  font-size: 17px;
+  color: #2A5F4C; /* アクセントカラー（深緑） */
+}
+
+/*---------------work-------------------*/
+.works-section {
+  text-align: center;
+  padding: 40px 60px; /* 上下に40px、左右に60pxの余白 */
+  background: #FAF8F4; /*Worksベース薄茶*/
+  margin-bottom: 40px; /* 下の余白 */
+}
+
+.works-container {
+  display: flex;
+  flex-wrap: wrap; /* 複数行に折り返す */
+  justify-content: center;
+  gap: 40px 80px; /* 画像間の上下に40pxの余白、左右に135px */
+  margin-top: 60px;   /* 上のアイテムとの距離感 */
+  padding: 0 60px; /* 左右の余白を150pxに設定 */
+  max-width: 2000px; /* 横3つ分 + gap を制限 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.work-item img, .work-placeholder {
+  width: 400px;
+  height: 230px;
+  border: 1px solid #5C4432;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px; /* 角を丸く */
+  object-fit: cover; /* 画像のアスペクト比を保ちながらサイズ調整 */
+}
+/* プレースホルダー（Coming Soon背景） */
+.work-placeholder {
+  background: #ccc; /*プレースホルダーの背景色*/
+  border: 1px dashed #999;
+  position: relative;
+}
+
+/* 準備中テキストの位置とスタイル */
+.work-description {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #5C4432;
+}
+/* COMING SOON テキスト */
+.coming-soon {
+  color: #5C4432;
+  font-weight: bold;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+/* Moreリンク */
+.more-link {
+  margin-top: 60px;
+  text-align: center; /* 中央寄せに */
+}
+
+.more-link a {
+  display: inline-block;
+  background-color: #C5EBDD;       /* 薄緑背景（カテゴリーボタンと同じ） */
+  color: #5C4432;                  /* こげ茶文字 */
+  border: 1px solid #C5EBDD;      /* 薄緑の枠線 */
+  width: 150px;                   /* 固定幅 */
+  height: 50px;                   /* 固定高さ */
+  line-height: 50px;              /* 高さに合わせてテキスト垂直中央 */
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 8px;             /* 角丸 */
+  cursor: pointer;
+  text-align: center;             /* テキスト中央揃え */
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  user-select: none;
+  margin-bottom: 0px; /* 下の余白をなくす */
+}
+
+.more-link a:hover {
+  background-color: #5C4432;       /* ホバーでこげ茶背景 */
+  color: #C5EBDD;                  /* 文字は薄緑 */
+  border-color: #5C4432;
+  text-decoration: none;
+}
+
+/*-----------------------Contact--------------------------*/
+.contact-section {
+  padding: 20px 20px 110px;/*Contactの上・下幅*/
+  text-align: center;
+  background-color: #FAF8F4;/*Contactベース薄茶*/
+}
+/*問い合わせベース白色*/
+.contact-box {
+  background: #EDE6DA; /*問い合わせベース薄茶色*/
+  padding: 40px;/*問い合わせの上下幅*/
+  font-size: 16px; /*問い合わせの文字サイズ*/
+  border: 1px solid #5C4432; /*問い合わせの枠線*/
+  max-width: 600px;
+  margin: auto; /* 中央寄せ */
+  border-radius: 8px; /* 角を丸く */ 
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.1); /* 影の効果 */
+}
+/* 名前・メール・本文のフィールドを左寄せ */
+.contact-box .form-fields {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;/* 名前と説明文の距離 */
+  text-align: left;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* プライバシーポリシー同意部分だけ中央寄せ */
+.contact-box .privacy-agreement {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+/*項目分と四角の距離感*/
+.contact-box input,
+.contact-box select {
+  padding: 10px;/*項目分と四角の距離感*/
+  border: 1px solid #5C4432;
+  border-radius: 8px;
+  background: #FAF8F4;
+}
+.contact-box textarea {
+  padding: 20px;
+  border: 1px solid #5C4432;
+  border-radius: 8px;
+  background: #FAF8F4;
+}
+/*送信ボタン*/
+.contact-box button {
+  margin-top: 10px;
+  padding: 5px 20px;
+  border: none; /* ボーダーなし */
+  background: #FAF8F4;
+  color: #5C4432; /* こげ茶色の文字 */
+  border-radius: 8px; /* 角を丸く */
+  cursor: pointer;
+}
+
+.privacy {
+  font-size: 10px;
+  color: #5C4432;
+  margin-top: 10px;
+}
+/*-----------------------Footer--------------------------*/
+footer {
+  padding: 20px 60px;
+  background: #C5EBDD; /* フッターの背景色 */
+  font-size: 10px; 
+  display: flex;
+  justify-content: space-between; /* 左右に分ける */
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;   /* 左右に分ける */
+  align-items: flex-start; /* 左右に分ける */
+  flex-wrap: wrap; /* アイコンとテキストを横並びに */
+}
+.footer-left{
+  margin-bottom: 0px; /* 下の要素との距離を調整 */
+}
+.footer-right {
+  margin-bottom: 0px;
+  text-align: right; /* 右揃えにする */
+}
+/* アイコン設定 */
+.icons img {
+  width: 20px;   /* アイコンの幅を揃える */
+  height: 20px; /* 高さも揃える */
+  margin-right: 10px; /* アイコン間のスペース */
+  vertical-align: middle; /* アイコンとテキストの縦位置を揃える */
+}
+/* コピーライト設定 */
+footer .copyright {
+  width: 100%;
+  text-align: center;
+  margin-top: 0px; /* 上の要素との距離を調整 */
+  font-size: 8px; 
+}
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+  }
+  .works-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .work-item {
+    width: 90%;
+  }
+}

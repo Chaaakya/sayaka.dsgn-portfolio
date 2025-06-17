@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAYAKA TANI Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header>
+  <div class="logo-area">
+    <p class="tagline">想いをカタチにするシゴト</p>
+    <div class="name-job">
+      <h1>SAYAKA TANI</h1>
+      <p class="sub">WEBデザイナー・コーダー</p>
+    </div>
+  </div>
+  </header>
+   <!-- ナビ -->
+  <nav>
+    <ul>
+      <li><a href="#top">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#works">WORKS</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <!-- メインビジュアル部分（トップ画像） -->
+<section id="top" class="mainvisual">
+    <img src="images/mainvisual-small.jpg" alt="自身のホーム写真です" />
+</section>
+
+  <!-- ABOUTセクション -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>ABOUT</h2>
+        <hr class="section-divider" />
+        <h3>私について</h3>
+        <div class="about-box">
+          <p>
+            <span class="about-name">たに さやか</span><br />
+            神奈川県生まれ、東京都在住。<br />
+            心理学を学んだ後、保険会社での営業職を経て、<br />
+            現在はIT企業の企画部でシステム運営や営業支援に携わりながら、<br />
+            フリーランスとしても活動しています。<br /><br />
+            <span class="about-quote">“言葉とデザインで想いを届ける”</span>ことを大切に、<br />
+            シンプルで信頼感のある表現を心がけています。<br />
+            ご相談には一つひとつ丁寧に向き合い、<br />
+            想いに寄り添った制作を目指しています。
+          </p>
+        </div>
+      </div>
+      <div class="about-image">
+        <img src="images/about.jpg" alt="プロフィール写真" />
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKSセクション -->
+  <section id="works" class="works-section">
+    <h2>WORKS</h2>
+    <hr class="section-divider" />
+    <h3>制作実績</h3>
+    <div class="works-container">
+      <div class="work-item">
+        <a href="works-detail1.html">
+        <img src="images/top.png" alt="制作実績1" />
+        <p class="work-description">My Portfolio Site</p>
+        </a>
+      </div>
+      <div class="work-item">
+        <div class="work-placeholder">
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+        <p class="work-description">（準備中の作品）</p>
+      </div>
+      <div class="work-item">
+        <div class="work-placeholder">
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+        <p class="work-description">（準備中の作品）</p>
+      </div>
+      <div class="work-item">
+        <div class="work-placeholder">
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+        <p class="work-description">（準備中の作品）</p>
+      </div>
+      <div class="work-item">
+        <div class="work-placeholder">
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+        <p class="work-description">（準備中の作品）</p>
+      </div>
+      <div class="work-item">
+        <div class="work-placeholder">
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+        <p class="work-description">（準備中の作品）</p>
+      </div>
+    </div>
+    <!-- Moreリンク -->
+    <div class="more-link">
+      <a href="works-list.html" class="btn-more">MORE</a>
+    </div>
+  </section>
+
+  <!-- CONTACTセクション -->
+  <section id="contact" class="contact-section">
+    <h2>CONTACT</h2>
+    <hr class="section-divider" />
+    <h3>問い合わせ</h3>
+    <div class="contact-box">
+      <p>
+        サイトをご覧頂き、ありがとうございます。<br />
+        お仕事のご相談・ご依頼など、お気軽にご連絡ください。<br />
+        内容を確認の上、通常2〜3営業日以内にご返信いたします。
+      </p>
+      <form action="https://formspree.io/f/abcdxyz" method="POST" class="contact-form">
+         <div class="form-fields">
+         <label for="name">お名前 / NAME</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">メールアドレス / EMAIL</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">本文 / MESSAGE</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+         <label class="privacy-agreement">
+         <input type="checkbox" name="agree" required />
+          プライバシーポリシーに同意して送信する
+          </label>
+        <button type="submit">送信</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-left">
+        <p>SAYAKA TANI</p>
+        <div class="icons">
+          <a href="https://www.instagram.com/sayaka.dsgn" target="_blank" rel="noopener noreferrer">
+            <img src="images/instagram-brands.svg" alt="Instagram" />
+          </a>
+          <a href="mailto:sayaka.dsgn@gmail.com">
+            <img src="images/email.svg" alt="Email" />
+          </a>
+        </div>
+      </div>
+    </div>
+      <div class="footer-right">
+      <p>EMAIL : SAYAKA.DSGN@GMAIL.COM</p>
+      <p>DM : @SAYAKA_DSGN</p>
+    </div>
+    <div class="copyright">
+      <p>© SAYAKA TANI</p>
+    </div>
+  </footer>
+</body>
+</html>
