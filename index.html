@@ -8,7 +8,7 @@
 </head>
 <body>
   <!-- ヘッダー -->
-  <header>
+<header>
   <div class="logo-area">
     <p class="tagline">想いをカタチにするシゴト</p>
     <div class="name-job">
@@ -16,8 +16,15 @@
       <p class="sub">WEBデザイナー・コーダー</p>
     </div>
   </div>
-  </header>
-   <!-- ナビ -->
+
+  <!-- ハンバーガーメニュー（スマホだけ表示） -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- ナビ -->
   <nav>
     <ul>
       <li><a href="#top">HOME</a></li>
@@ -173,5 +180,11 @@
         <p>© SAYAKA TANI</p>
       </div>
     </footer>
+
+    <script>
+  document.getElementById('hamburger').addEventListener('click', function () {
+    document.querySelector('nav ul').classList.toggle('active');
+  });
+</script>
 </body>
 </html>
