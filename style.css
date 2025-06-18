@@ -410,7 +410,7 @@ footer {
   }
 
   .logo-area h1 {
-    font-size: 22px; /* PCより少し小さめ */
+    font-size: 16px; /* PCより少し小さめ */
     text-align: left;
   }
 
@@ -522,7 +522,7 @@ footer {
     flex: 1;
     min-width: 0;
     text-align: center; /* スマホでは中央寄せ */
-    size: 13px; /* 全体的に1段階小さく */
+    size: 12px; /* 全体的に1段階小さく */
   }
    .about-box {
     max-width: 400px;
