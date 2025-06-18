@@ -48,6 +48,10 @@ header {
   display: block; /* 画像をブロック要素にして中央寄せ */
   margin-bottom: 0; /* 不要な下余白をなくす */
 }
+/* デフォルトは非表示（PC） */
+.hamburger {
+  display: none;
+}
 /*--------------------ナビ-------------------------*/
 nav {
   position: fixed; /* ヘッダーをページ上部に固定して、スクロールしても表示されるようにする */
@@ -128,9 +132,7 @@ nav ul a:hover::after {
   margin-bottom: 40px;
 }
 
-
 /*-------------------- About セクション --------------------*/
-
 /* セクション全体の背景と余白 */
 .about-section {
   display: flex;
@@ -399,89 +401,234 @@ footer {
 }
 /*-----------------------スマホサイズ--------------------------*/
 @media screen and (max-width: 768px) {
-  /* ヘッダーとナビゲーション */
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 20px;
+  /* ロゴ横並びのまま、文字サイズだけ小さく */
+  .name-job {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
     gap: 10px;
   }
 
-  /* メインビジュアル */
+  .logo-area h1 {
+    font-size: 22px; /* PCより少し小さめ */
+    text-align: left;
+  }
+
+  .logo-area .sub {
+    font-size: 12px;
+    text-align: left;
+  }
+
+  /* タグライン */
+  .tagline {
+    font-size: 13px;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    /* 右上固定の設定 */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1002;
+    padding: 10px;
+    border-radius: 8px;
+
+  }
+
+  .hamburger span {
+    height: 3px;
+    background: #5C4432;
+    border-radius: 2px;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    padding: 10px;
+    border: 1px solid #5C4432;
+    border-radius: 8px;
+    z-index: 1001;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav {
+    position: static;
+  }
+  /*--------------------セクション見出しスタイル（共通）-------------------------*/
+/* メインビジュアル・スマホ画面幅に合わせて100% */
   .mainvisual img {
-    width: 100%;
-    height: auto;
+    width: 100%;          /* スマホ画面幅に合わせて100% */
+    height: auto;         /* 高さは画像の縦横比に合わせて自動 */
+    object-fit: cover;    /* はみ出し防止（元のCSSと同じ） */
+    display: block;
+    margin: 0 auto;
   }
 
-  /* ABOUTセクション */
+  /* セクションタイトル（h2）の文字サイズを縮小 */
+  .about-text h2,
+  .works-section h2,
+  .contact-section h2 {
+    font-size: 22px;       /* 28px → 22px に調整 */
+    margin-bottom: 8px;    /* 下の余白も少しだけ詰める */
+  }
+
+  /* 区切り線（下線）の長さと間隔を縮小 */
+  .section-divider {
+    width: 100px;          /* 150px → 100px */
+    margin: 0 auto 6px;    /* 少しだけ下の余白を減らす */
+  }
+
+  /* 小見出し（h3）も縮小 */
+  .about-text h3,
+  .works-section h3,
+  .contact-section h3 {
+    font-size: 12px;       /* 14px → 12px に縮小 */
+  }
+
+  /* ------- ABOUTセクション全体 ------- */
+  /* Aboutセクション全体の配置設定 */
   .about-section {
-    flex-direction: column;
-    padding: 30px 20px;
+    display: flex;
+    justify-content: center;  /* 中身を横方向中央揃え */
+    align-items: center;      /* 縦揃え（任意） */
+    padding: 30px 15px;
   }
 
+  /* 写真とテキストを含むコンテナ */
   .about-container {
-    flex-direction: column;
-    gap: 40px;
+    flex-direction: row;       /* 横並び */
+    flex-wrap: wrap;           /* 狭い画面で折り返し可 */
+    justify-content: center;   /* 中央に寄せる */
+    align-items: center;       /* 高さ方向も揃える */
+    gap: 60px;                 /* 写真と説明文の間隔を縮小 */
   }
 
-  .about-box {
-    width: 100%;
-    height: auto;
-    padding: 20px;
+  /* テキスト側の設定 */
+  .about-text {
+    flex: 1;
+    min-width: 0;
+    text-align: center; /* スマホでは中央寄せ */
+    size: 13px; /* 全体的に1段階小さく */
+  }
+   .about-box {
+    max-width: 400px;
+    margin-top: 30px; /* 上の余白を少し詰める */
   }
 
+  /* 写真エリアの設定 */
+  .about-image {
+    flex-shrink: 0;            /* 写真の縮みすぎを防止（画像サイズ優先） */
+    padding-top: 60px; /* 上の余白を少し詰める */
+  }
+
+  /* 実際の写真サイズを小さく表示 */
   .about-image img {
-    width: 100%;
-    max-width: 300px;
+    width: 150px;              /* スマホ用に小さめ設定（元は400px） */
+    border-radius: 8px;        /* 角を丸くするデザインは維持 */
+    margin: auto;              /* 中央寄せ */
   }
 
-  /* WORKSセクション */
+  /* 自己紹介文が入った白ボックスの設定 */
+  .about-box {
+    width: 100%;               /* 横幅はスマホに合わせて100% */
+    max-width: 420px;          /* 最大幅の制限をつけて読みやすさ確保 */
+    height: auto;              /* 高さは内容に応じて可変に */
+    padding: 10px;             /* 内側の余白を少し詰める */
+    gap: 40px;                /* 内側の要素間のスペースを少し詰める */
+  }
+
+  /* 説明文の文字サイズや行間を調整して読みやすく */
+  .about-box p {
+    font-size: 12px;           /* 全体的に1段階小さく */
+    line-height: 1.8;          /* 行間をやや広めにして読みやすく */
+  }
+
+  /* 名前部分の文字サイズも少しだけ縮小 */
+  .about-name {
+    font-size: 13px;
+    font-weight: bold;         /* 太字は維持 */
+    text-align: center; /* スマホでは中央寄せ */
+  
+  }
+
+  /* 引用部分（“想いを届ける”など）も縮小 */
+  .about-quote {
+    font-size: 12px;
+  }
+
+   /* ------- WORKSセクションの縮小 ------- */
   .works-section {
-    padding: 30px 20px;
+    padding: 30px 20px; /* 全体の余白を縮小 */
   }
 
   .works-container {
-    padding: 0;
-    gap: 30px;
+    padding: 0;         /* 左右余白なし */
+    gap: 30px;          /* アイテム同士の間隔を縮小 */
   }
 
-  .work-item img, .work-placeholder {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
+  /* ------- 準備中の作品（Coming Soon）を非表示 ------- */
+  .work-item .work-placeholder {
+    display: none; /* グレーのダミー画像を非表示 */
   }
 
-  .more-link a {
-    width: 100%;
-    max-width: 300px;
-    height: 50px;
-    line-height: 50px;
-    font-size: 16px;
+  /* .coming-soon を含む説明文も非表示（保険） */
+  .work-description:has(.coming-soon) {
+    display: none;
   }
 
-  /* CONTACTセクション */
+  /* 順番指定で準備中のボックス全体をまとめて非表示（互換性保証） */
+  .work-item:nth-child(2),
+  .work-item:nth-child(3),
+  .work-item:nth-child(4),
+  .work-item:nth-child(5),
+  .work-item:nth-child(6) {
+    display: none;
+  }
+
+  /* ------- MOREリンクも非表示にする ------- */
+  .more-link {
+    display: none;
+  }
+
+  /* ------- CONTACTセクション ------- */
+  .contact-section {
+    padding: 20px 15px 60px;
+  }
+
   .contact-box {
-    padding: 20px;
+    margin-top: 40px;
+    padding: 15px;
+    max-width: 60%;
+    font-size: 12px;
   }
 
   .contact-box .form-fields {
-    padding: 10px;
+    padding: 15px;
+    gap: 5px;
   }
 
   .contact-box input,
-  .contact-box textarea {
-    font-size: 14px;
+  .contact-box textarea,
+  .contact-box select {
+    font-size: 12px;
   }
 
-  /* フッター */
-  footer {
-    padding: 20px 10px;
-    font-size: 10px;
+  .contact-box button {
+    font-size: 12px;
+    padding: 5px 10px;
   }
 }
