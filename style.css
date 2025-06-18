@@ -399,6 +399,7 @@ footer {
   text-align: center;
   font-size: 10px; 
 }
+
 /*-----------------------スマホサイズ--------------------------*/
 @media screen and (max-width: 768px) {
   /* ロゴ横並びのまま、文字サイズだけ小さく */
@@ -522,7 +523,7 @@ footer {
     flex: 1;
     min-width: 0;
     text-align: center; /* スマホでは中央寄せ */
-    size: 12px; /* 全体的に1段階小さく */
+    size: 13px; /* 全体的に1段階小さく */
   }
    .about-box {
     max-width: 400px;
@@ -632,3 +633,4 @@ footer {
     padding: 5px 10px;
   }
 }
+
