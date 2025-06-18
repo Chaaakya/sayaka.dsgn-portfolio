@@ -4,6 +4,9 @@ body {
   margin: 0; /* ページの上下左右の余白をなくす */
   background-color: #FAF8F4; /* 背景を白に設定 */
   color: #5C4432; /* 全体の文字色をこげ茶に設定 */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 html {
   scroll-behavior: smooth;
@@ -13,6 +16,10 @@ html {
   box-sizing: border-box;
 }
 
+main {
+  flex: 1;
+}
+
 /* ------------------- ヘッダー（ナビゲーション）の設定 ------------------- */
 header {
   position: fixed; /* ヘッダーをページ上部に固定して、スクロールしても表示されるようにする */
@@ -20,7 +27,6 @@ header {
   left: 0;
   width: 100%; /* ヘッダーの横幅を画面いっぱいにする */
   z-index: 1000; /* 他の要素より前に表示されるようにする */
-  background-color: #FAF8F4; /* ヘッダーの背景を白に（透明だと中身が見にくいため） */
 }
 
 /* ヘッダー内のナビゲーションメニューの設定（リスト） */
@@ -65,6 +71,70 @@ nav ul a:hover {
 
 nav ul a:hover::after {
   transform: scaleX(1);
+}
+
+/* -------------------- 左上プロフィールバー -------------------- */
+.profile-bar {
+  position: fixed;
+  top: 40px;
+  left: 20px;
+  width: 160px;
+  text-align: center;
+  z-index: 1001;/* ヘッダーより前に表示 */
+  padding: 10px;
+  border-radius: 10px;
+  color: #5C4432;
+}
+
+.profile-name {
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #5C4432; /* こげ茶色 */
+  display: block; /* アイコンの下に表示されるようにブロック要素にする */
+}
+
+.profile-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: cover; /* 画像のアスペクト比を保ちながらサイズ調整 */
+  border-radius: 50%;
+}
+
+/* 名前をカーブ */
+.name-curve {
+  position: absolute; 
+  top: -6px; /* アイコンの上に位置調整 */
+  left: -20px;
+  width: 200px;
+  height: 100px;
+  font-size: 12px;
+  font-weight: bold;
+  pointer-events: none; /* クリックの邪魔をしない */
+  letter-spacing: 2px; /* おすすめは 1〜3px 程度 */
+  fill : #5C4432; /* こげ茶色 */
+}
+
+/* ホバー効果付きアイコン */
+.profile-icons img {
+  width: 18px;
+  height: 18px;
+  margin: 5px 2px;
+  vertical-align: middle;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(16%) saturate(750%) hue-rotate(330deg);
+}
+
+.profile-icons img:hover {
+  transform: scale(1.3);
+  opacity: 0.8;
+}
+/* スマホでは非表示にしたい */
+@media screen and (max-width: 768px) {
+  .profile-bar {
+    display: none;
+  }
 }
 
 /*----------------- WORKSタイトルスタイル------------------ */
@@ -138,15 +208,16 @@ html {
 .work-category > h4 {
   position: relative;
   display: block;
-  width: fit-content;
+  width: 120px; /* ← 横幅を調整 */
+  height: 80px; /* ← 高さを調整 */
   margin-top: 130px;
   margin-bottom: 80px; /* 上下の余白を調整 */
   margin-left: 150px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   color: #5C4432;
   background-color: #C5EBDD;      /* ← 背景を削除 */
-  padding: 5px 20px ;            /* ← 内側余白も削除 */
+  padding: 0px 20px ;            /* ← 内側余白も削除 */
   height: auto;          /* ← 高さ制限も解除 */
   line-height: 1.5;     /* ← 行間を調整 */
   border-radius: 8px;   /* ← 角丸を追加 */
@@ -159,7 +230,7 @@ html {
   position: absolute;
   bottom: 0;
   left: 100%;
-  width: 1400px;
+  width: 1000px;
   height: 1px;
   background-color: #5C4432;
   transform: translateY(-50%);
@@ -169,8 +240,8 @@ html {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  column-gap: 100px;
-  row-gap: 60px; /* ← 追加 */
+  column-gap: 90px;
+  row-gap: 60px; /* 作品間の縦の余白を調整 */
   width: 100%;
 }
 .work-set {
@@ -181,8 +252,8 @@ html {
 
 /* 画像だけ囲むボックス */
 .work-item {
-  width: 500px;
-  height: 300px; /* 高さを固定 */
+  width: 450px;
+  height: 280px; /* 高さを固定 */
   border: 1px solid #5C4432;
   border-radius:8px;
   overflow: hidden;
@@ -208,19 +279,18 @@ html {
 }
 /* 説明文を中央に、画像の外に */
 .work-description {
-  width: 500px;
+  width: 450px;
   text-align: center;
   font-size: 16px;
   color: #5C4432;
   margin-top: 10px;
-  margin-bottom: 40px; /* 次のアイテムとの余白 */
 }
 .work-item.placeholder {
   background-color: #ccc; /* プレースホルダーの背景色 */
   border: 1px dashed #999;
   position: relative;
-  width: 500px;
-  height: 300px; /* 高さを固定 */
+  width: 450px;
+  height: 280px; /* 高さを固定 */
   border-radius: 8px; /* 角を丸く */
 }
 
@@ -238,7 +308,7 @@ html {
 /* ------------------- BACKボタン ------------------- */
 .back-button {
   text-align: center;
-  margin: 0px 0px 6dvb;
+  padding: 0px 0px 120px;
 }
 
 .back-button a {
@@ -251,53 +321,29 @@ html {
   border-radius: 8px;
   font-size: 16px;
 }
+
 /*-----------------------Footer--------------------------*/
 footer {
-  padding: 20px 60px;
+  padding: 10px;
   background: #C5EBDD; /* フッターの背景色 */
-  font-size: 10px; 
-  display: flex;
-  justify-content: space-between; /* 左右に分ける */
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-.footer-top {
-  display: flex;
-  justify-content: space-between;   /* 左右に分ける */
-  align-items: flex-start; /* 左右に分ける */
-  flex-wrap: wrap; /* アイコンとテキストを横並びに */
-}
-.footer-left{
-  margin-bottom: 0px; /* 下の要素との距離を調整 */
-}
-.footer-right {
-  margin-bottom: 0px;
-  text-align: right; /* 右揃えにする */
-}
-/* アイコン設定 */
-.icons img {
-  width: 20px;   /* アイコンの幅を揃える */
-  height: 20px; /* 高さも揃える */
-  margin-right: 10px; /* アイコン間のスペース */
-  vertical-align: middle; /* アイコンとテキストの縦位置を揃える */
-}
-/* コピーライト設定 */
-footer .copyright {
   width: 100%;
   text-align: center;
-  margin-top: 0px; /* 上の要素との距離を調整 */
-  font-size: 8px; 
+  font-size: 10px; 
 }
+/*-----------------------スマホサイズ--------------------------*/
 @media screen and (max-width: 768px) {
   .works-item-wrap {
     flex-direction: column;
     align-items: center;
     gap: 40px;
   }
+
   .work-description {
     width: 90%;
   }
+
   footer {
     padding: 20px;
+    font-size: 9px;
   }
 }
