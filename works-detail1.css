@@ -217,7 +217,7 @@ nav ul a:hover::after {
 }
 
 .overview-left img {
-  width: 300px;
+  width: 400px;
   border: #5C4432 1px solid; /* 画像の枠線をこげ茶色に */
   border-radius: 8px; /* 角を丸く */
   margin-left: 120px; /* 左側の余白を追加 */
