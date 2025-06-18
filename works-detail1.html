@@ -18,8 +18,35 @@
       </ul>
     </nav>
   </header>
-<main>
-  <section class="works">
+
+<!-- icon部分（トップ画像） -->
+<section class="profile-bar">
+  <svg viewBox="0 0 200 100" class="name-curve">
+    <defs>
+      <path id="curvePath" d="M 20,90 A 80,80 0 0,1 180,90" />
+    </defs>
+    <text>
+      <textPath href="#curvePath" startOffset="50%" text-anchor="middle">
+        SAYAKA.T
+      </textPath>
+    </text>
+  </svg>
+
+  <img src="images/icon.jpg" alt="自身のアイコンです" class="profile-icon" />
+    <text class="profile-name">Get in touch</text>
+  <div class="profile-icons">
+    <a href="https://www.instagram.com/sayaka.dsgn" target="_blank">
+      <img src="images/instagram-brands.svg" alt="Instagram">
+    </a>
+    <a href="mailto:sayaka.dsgn@gmail.com">
+      <img src="images/email.svg" alt="Email">
+    </a>
+  </div>
+</section>
+
+<!-- main -->
+  <section class="main-top-area">
+  <div class="works">
     <h2 class="section-title">WORKS</h2>
     <hr class="section-divider">
     <p class="subtitle">制作実績</p>
@@ -29,11 +56,19 @@
       <img src="images/top.png" alt="ポートフォリオサイトのメイン画像">
     </div>
 
-    <p class="site-link">
-      サイトを見る<br>
-      <a href="https://chaaakya.github.io/sayaka.dsgn-portfolio/" target="_blank">https://chaaakya.github.io/sayaka.dsgn-portfolio//</a>
-    </p>
+    <div class="site-link-wrapper">
+      <p class="site-link">
+        <strong>サイトを見る</strong><br>
+        <a href="https://chaaakya.github.io/sayaka.dsgn-portfolio/" target="_blank">
+          https://chaaakya.github.io/sayaka.dsgn-portfolio/
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
 
+  
+<!-- 制作情報ボックス -->
     <div class="info-boxes">
       <div class="info-box">制作期間：100時間</div>
       <div class="info-box">制作時期：2025年6月</div>
@@ -88,30 +123,11 @@
       <a href="#">BACK</a>
     </div>
 
-    <!-- フッター -->
+  <!-- フッター -->
     <footer>
-      <div class="footer-top">
-        <div class="footer-left">
-          <p>SAYAKA TANI</p>
-          <div class="icons">
-            <a href="https://www.instagram.com/sayaka.dsgn" target="_blank" rel="noopener noreferrer">
-              <img src="images/instagram-brands.svg" alt="Instagram" />
-            </a>
-             <a href="mailto:sayaka.dsgn@gmail.com">
-              <img src="images/email.svg" alt="Email" />
-            </a>
-          </div>
-        </div>
-      </div>
-        <div class="footer-right">
-        <p>EMAIL : SAYAKA.DSGN@GMAIL.COM</p>
-        <p>DM : @SAYAKA_DSGN</p>
-      </div>
       <div class="copyright">
         <p>© SAYAKA TANI</p>
       </div>
     </footer>
-  </section>
-</main>
 </body>
 </html>
