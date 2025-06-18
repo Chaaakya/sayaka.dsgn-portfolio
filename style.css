@@ -399,17 +399,24 @@ footer {
   text-align: center;
   font-size: 10px; 
 }
-
 /*-----------------------スマホサイズ--------------------------*/
 @media screen and (max-width: 768px) {
   /* ロゴ横並びのまま、文字サイズだけ小さく */
+  body {
+    overflow-x: hidden;
+  }
+  .logo-area {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;   /* 左右均等に */
+}
   .name-job {
     flex-direction: row;
     align-items: baseline;
     justify-content: center;
     gap: 10px;
   }
-
+  
   .logo-area h1 {
     font-size: 16px; /* PCより少し小さめ */
     text-align: left;
@@ -532,15 +539,7 @@ footer {
 
   /* 写真エリアの設定 */
   .about-image {
-    flex-shrink: 0;            /* 写真の縮みすぎを防止（画像サイズ優先） */
-    padding-top: 60px; /* 上の余白を少し詰める */
-  }
-
-  /* 実際の写真サイズを小さく表示 */
-  .about-image img {
-    width: 150px;              /* スマホ用に小さめ設定（元は400px） */
-    border-radius: 8px;        /* 角を丸くするデザインは維持 */
-    margin: auto;              /* 中央寄せ */
+    display: none;
   }
 
   /* 自己紹介文が入った白ボックスの設定 */
@@ -577,7 +576,7 @@ footer {
   }
 
   .works-container {
-    padding: 0;         /* 左右余白なし */
+    padding: 0 20px;         /* 左右余白なし */
     gap: 30px;          /* アイテム同士の間隔を縮小 */
   }
 
@@ -607,7 +606,7 @@ footer {
 
   /* ------- CONTACTセクション ------- */
   .contact-section {
-    padding: 20px 15px 60px;
+    padding: 10px 15px 60px;
   }
 
   .contact-box {
@@ -633,4 +632,3 @@ footer {
     padding: 5px 10px;
   }
 }
-
