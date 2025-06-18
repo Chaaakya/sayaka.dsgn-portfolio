@@ -8,7 +8,7 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  padding: 40px 60px;
+  padding: 40px 60px 20px; /* 上下に40px、左右に60pxの余白 */
   background: #FAF8F4;
 }
 .logo-area {
@@ -28,7 +28,7 @@ header {
 .name-job {
   display: flex;
   align-items: baseline; /* 高さを文字の下の線で揃える */
-  gap: 15px; /* 文字間のスペース */
+  gap: 20px; /* 文字間のスペース */
 }
 /* Sayaka tani */
 .logo-area h1 {
@@ -37,13 +37,13 @@ header {
 }
 /*Webデザイナー・コーダー*/
 .logo-area .sub {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
 }
 /*--------------------Main Visual-------------------------*/
 .mainvisual img {
   width: 80%;
-  height: 20%; /* 高さを90%に設定 */
+  height: 650px; /* 高さを90%に設定 */
   object-fit: cover; /* 画像のアスペクト比を保ちながらサイズ調整 */
   display: block; /* 画像をブロック要素にして中央寄せ */
   margin-bottom: 0; /* 不要な下余白をなくす */
@@ -136,7 +136,7 @@ nav ul a:hover::after {
   display: flex;
   justify-content: center;
   padding: 40px 20px;        /* 上下40px・左右20pxの余白 */
-  background: #C5EBDD;       /* 薄緑背景 */
+  background: #d8f6eb;       /* 薄緑背景 */
 }
 
 /* コンテンツ全体の横並び配置（テキスト＋写真） */
@@ -291,20 +291,19 @@ nav ul a:hover::after {
 
 /*-----------------------Contact--------------------------*/
 .contact-section {
-  padding: 20px 20px 110px;/*Contactの上・下幅*/
+  padding: 30px 20px 100px;/*Contactの上・下幅*/
   text-align: center;
   background-color: #FAF8F4;/*Contactベース薄茶*/
 }
 /*問い合わせベース白色*/
 .contact-box {
   background: #EDE6DA; /*問い合わせベース薄茶色*/
-  padding: 40px;/*問い合わせの上下幅*/
-  font-size: 16px; /*問い合わせの文字サイズ*/
+  padding: 30px;/*問い合わせの上下幅*/
+  font-size: 14px; /*問い合わせの文字サイズ*/
   border: 1px solid #5C4432; /*問い合わせの枠線*/
   max-width: 600px;
   margin: auto; /* 中央寄せ */
   border-radius: 8px; /* 角を丸く */ 
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.1); /* 影の効果 */
 }
 /* 名前・メール・本文のフィールドを左寄せ */
 .contact-box .form-fields {
@@ -325,9 +324,9 @@ nav ul a:hover::after {
 /*項目分と四角の距離感*/
 .contact-box input,
 .contact-box select {
-  padding: 10px;/*項目分と四角の距離感*/
+  padding: 8px;/*項目分と四角の距離感*/
   border: 1px solid #5C4432;
-  border-radius: 8px;
+  border-radius: 8px; /* 角を丸く */
   background: #FAF8F4;
 }
 .contact-box textarea {
@@ -339,66 +338,79 @@ nav ul a:hover::after {
 /*送信ボタン*/
 .contact-box button {
   margin-top: 10px;
-  padding: 5px 20px;
+  padding: 5px 35px;
   border: none; /* ボーダーなし */
   background: #FAF8F4;
   color: #5C4432; /* こげ茶色の文字 */
   border-radius: 8px; /* 角を丸く */
   cursor: pointer;
+  margin-bottom: 10px; /* ボタンの高さを調整 */
+
 }
 
-.privacy {
-  font-size: 10px;
-  color: #5C4432;
-  margin-top: 10px;
+/* -------------------- 右下コンタクト固定ボタン -------------------- */
+.contact-floating {
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  border-radius: 12px;
+  padding: 10px 14px;
+  z-index: 1001;
+  text-align: center;
 }
+
+.contact-floating .contact-label {
+  font-size: 12px;
+  font-weight: bold;
+  color: #5C4432;
+  margin-bottom: 6px;
+}
+
+.contact-floating .contact-icons img {
+  width: 20px;
+  height: 20px;
+  margin: 0 4px;
+  vertical-align: middle;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;  /* カーソルをポインターに変更 */
+  filter: brightness(0) saturate(100%) invert(27%) sepia(16%) saturate(750%) hue-rotate(330deg);
+}
+
+.contact-floating .contact-icons img:hover {
+  transform: scale(1.2);
+  opacity: 0.7;
+}
+
+
+/* スマホでは非表示にする */
+@media screen and (max-width: 768px) {
+  .contact-floating {
+    display: none;
+  }
+}
+
 /*-----------------------Footer--------------------------*/
 footer {
-  padding: 20px 60px;
+  padding: 10px;
   background: #C5EBDD; /* フッターの背景色 */
-  font-size: 10px; 
-  display: flex;
-  justify-content: space-between; /* 左右に分ける */
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-.footer-top {
-  display: flex;
-  justify-content: space-between;   /* 左右に分ける */
-  align-items: flex-start; /* 左右に分ける */
-  flex-wrap: wrap; /* アイコンとテキストを横並びに */
-}
-.footer-left{
-  margin-bottom: 0px; /* 下の要素との距離を調整 */
-}
-.footer-right {
-  margin-bottom: 0px;
-  text-align: right; /* 右揃えにする */
-}
-/* アイコン設定 */
-.icons img {
-  width: 20px;   /* アイコンの幅を揃える */
-  height: 20px; /* 高さも揃える */
-  margin-right: 10px; /* アイコン間のスペース */
-  vertical-align: middle; /* アイコンとテキストの縦位置を揃える */
-}
-/* コピーライト設定 */
-footer .copyright {
   width: 100%;
   text-align: center;
-  margin-top: 0px; /* 上の要素との距離を調整 */
-  font-size: 8px; 
+  font-size: 10px; 
 }
-/* レスポンシブ対応 */
+/*-----------------------スマホサイズ--------------------------*/
 @media screen and (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-  }
-  .works-container {
+  .works-item-wrap {
     flex-direction: column;
     align-items: center;
+    gap: 40px;
   }
-  .work-item {
+
+  .work-description {
     width: 90%;
+  }
+
+  footer {
+    padding: 20px;
+    font-size: 9px;
   }
 }
