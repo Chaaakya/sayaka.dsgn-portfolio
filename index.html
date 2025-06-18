@@ -122,47 +122,56 @@
       </p>
       <form action="https://formspree.io/f/abcdxyz" method="POST" class="contact-form">
          <div class="form-fields">
-         <label for="name">お名前 / NAME</label>
+          <!-- お問い合わせ項目 -->
+        <label>お問い合わせ項目</label>
+        <div class="contact-topics">
+          <label><input type="radio" name="topic" value="HP制作" required /> HP制作</label>
+          <label><input type="radio" name="topic" value="LP制作" /> LP制作</label>
+          <label><input type="radio" name="topic" value="バナー制作" /> バナー制作</label>
+          <label><input type="radio" name="topic" value="その他" /> その他</label>
+        </div>
+        <!-- ご担当者名 -->
+         <label for="name">お名前</label>
           <input type="text" id="name" name="name" required />
-
-          <label for="email">メールアドレス / EMAIL</label>
+          <!-- ご担当者名 かな-->
+         <label for="name">おなまえ(フリガナ)</label>
+          <input type="text" id="kana" name="kana" required />
+          <!-- 電話番号 -->
+        <label for="phone">電話番号</label>
+        <input type="tel" id="phone" name="phone" required />
+          <!-- メールアドレス -->
+          <label for="email">メールアドレス</label>
           <input type="email" id="email" name="email" required />
-
-          <label for="message">本文 / MESSAGE</label>
+          <!-- 本文 -->
+          <label for="message">お問い合わせ内容</label>
           <textarea id="message" name="message" rows="5" required></textarea>
-
-         <label class="privacy-agreement">
-         <input type="checkbox" name="agree" required />
-          プライバシーポリシーに同意して送信する
-          </label>
+        </div>
+        <!-- 送信ボタン -->
+        <div class="form-submit">
         <button type="submit">送信</button>
         </div>
       </form>
     </div>
   </section>
 
-  <!-- フッター -->
-  <footer>
-    <div class="footer-top">
-      <div class="footer-left">
-        <p>SAYAKA TANI</p>
-        <div class="icons">
-          <a href="https://www.instagram.com/sayaka.dsgn" target="_blank" rel="noopener noreferrer">
-            <img src="images/instagram-brands.svg" alt="Instagram" />
-          </a>
-          <a href="mailto:sayaka.dsgn@gmail.com">
-            <img src="images/email.svg" alt="Email" />
-          </a>
-        </div>
+  <!-- 右下固定のコンタクトボタン -->
+    <div class="contact-floating">
+      <p class="contact-label">Get in touch</p>
+      <div class="contact-icons">
+        <a href="https://www.instagram.com/sayaka.dsgn" target="_blank">
+          <img src="images/instagram-brands.svg" alt="Instagram" />
+        </a>
+        <a href="mailto:yourmail@example.com">
+          <img src="images/email.svg" alt="Mail" />
+        </a>
       </div>
     </div>
-      <div class="footer-right">
-      <p>EMAIL : SAYAKA.DSGN@GMAIL.COM</p>
-      <p>DM : @SAYAKA_DSGN</p>
-    </div>
-    <div class="copyright">
-      <p>© SAYAKA TANI</p>
-    </div>
-  </footer>
+
+  <!-- フッター -->
+    <footer>
+      <div class="copyright">
+        <p>© SAYAKA TANI</p>
+      </div>
+    </footer>
 </body>
 </html>
