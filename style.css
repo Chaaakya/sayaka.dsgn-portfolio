@@ -161,7 +161,7 @@ nav ul a:hover::after {
 /* 自己紹介写真 */
 .about-image img {
   width: 400px;
-  border-radius: 10px; /* 角を丸く */
+  border-radius: 8px; /* 角を丸く */
   margin: auto; /* 中央寄せ */
 }
 
@@ -177,7 +177,7 @@ nav ul a:hover::after {
   align-items: center; /* 中央揃え */
   justify-content: center; /* 中央揃え */
   margin: 0 auto; /* 中央寄せ */
-  border-radius: 10px;  /* 角を丸く */
+  border-radius: 8px;  /* 角を丸く */
   border: 1px solid #5C4432; /* こげ茶の枠線 */
 }
 
