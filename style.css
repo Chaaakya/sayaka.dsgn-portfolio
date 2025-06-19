@@ -408,12 +408,13 @@ footer {
   .logo-area {
   display: flex;
   flex-direction: column;
-  padding: 10px 0px;   /* 左右均等に */
+  padding: 10px 10px;   /* 左右均等に */
+  align-items: flex-start; /* 左寄せ */
 }
   .name-job {
     flex-direction: row;
     align-items: baseline;
-    justify-content: center;
+    justify-content: flex-start; /* 左寄せ */
     gap: 10px;
   }
   
