@@ -613,6 +613,13 @@ nav ul li a:hover::after {
     gap: 30px;          /* アイテム同士の間隔を縮小 */
   }
 
+.work-item {
+  margin: 0 20px; /* 左右に余白（必要に応じて調整） */
+  transform: scale(0.9); /* 縮小表示：90% */
+  transform-origin: center center; /* 中央を基準に縮小 */
+  transition: transform 0.3s ease; /* ホバー時などのなめらかさ */
+}
+
   /* ------- 準備中の作品（Coming Soon）を非表示 ------- */
   .work-item .work-placeholder {
     display: none; /* グレーのダミー画像を非表示 */
