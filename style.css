@@ -578,22 +578,21 @@ nav ul li a:hover::after {
   /* 自己紹介文が入った白ボックスの設定 */
   .about-box {
     width: 100%;               /* 横幅はスマホに合わせて100% */
-    max-width: 380px;          /* 最大幅の制限をつけて読みやすさ確保 */
+    max-width: 350px;          /* 最大幅の制限をつけて読みやすさ確保 */
     height: auto;              /* 高さは内容に応じて可変に */
     padding: 10px;             /* 内側の余白を少し詰める */
-    gap: 35px;                /* 内側の要素間のスペースを少し詰める */
     background-color: #d9f3ea;
   }
 
   /* 説明文の文字サイズや行間を調整して読みやすく */
   .about-box p {
-    font-size: 12px;           /* 全体的に1段階小さく */
+    font-size: 11px;           /* 全体的に1段階小さく */
     line-height: 1.8;          /* 行間をやや広めにして読みやすく */
   }
 
   /* 名前部分の文字サイズも少しだけ縮小 */
   .about-name {
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: bold;         /* 太字は維持 */
     text-align: center; /* スマホでは中央寄せ */
   
@@ -601,7 +600,7 @@ nav ul li a:hover::after {
 
   /* 引用部分（“想いを届ける”など）も縮小 */
   .about-quote {
-    font-size: 12px;
+    font-size: 11px;
   }
 
    /* ------- WORKSセクションの縮小 ------- */
