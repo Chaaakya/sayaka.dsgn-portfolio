@@ -609,18 +609,18 @@ footer {
 
   /* ------- CONTACTセクション ------- */
   .contact-section {
-    padding: 10px 15px 60px;
+    padding: 10px 10px 60px;
   }
 
   .contact-box {
     margin-top: 40px;
     padding: 15px;
-    max-width: 60%;
+    max-width: 70%;
     font-size: 12px;
   }
 
   .contact-box .form-fields {
-    padding: 15px;
+    padding: 10px;
     gap: 5px;
   }
 
