@@ -448,8 +448,6 @@ footer {
     right: 20px;
     z-index: 1002;
     padding: 10px;
-    border-radius: 8px;
-
   }
 
   .hamburger span {
@@ -459,24 +457,56 @@ footer {
   }
 
   nav ul {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 60px;
-    right: 20px;
-    padding: 10px;
-    border: 1px solid #5C4432;
-    border-radius: 8px;
-    z-index: 1001;
-  }
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  padding: 0;              /* ← ここでリセット */
+  z-index: 1001;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
 
-  nav ul.active {
-    display: flex;
-  }
+nav ul.active {
+  display: flex;
+  gap: 10px;
+  background-color: #ffffff;       /* 背景 */
+  border: 1px solid #5C4432;       /* 枠線 */
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
 
   nav {
     position: static;
   }
+  nav ul li a {
+  position: relative;
+  display: inline-block;
+  padding: 0px 0px;          /* テキストと下線の間隔 */
+  font-size: 11px;
+  color: #5C4432;
+  text-decoration: none;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;                    /* 下にぴったり */
+  width: 100%;
+  height: 0.8px;
+  background: #2A5F4C;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+
+nav ul li a:hover::after {
+  transform: scaleX(1);
+}
   /*--------------------セクション見出しスタイル（共通）-------------------------*/
 /* メインビジュアル・スマホ画面幅に合わせて100% */
   .mainvisual img {
