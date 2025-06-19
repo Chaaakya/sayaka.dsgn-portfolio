@@ -42,7 +42,7 @@ header {
 }
 /*--------------------Main Visual-------------------------*/
 .mainvisual img {
-  width: 80%;
+  width: 90%;
   height: 900px; /* 高さを90%に設定 */
   object-fit: cover; /* 画像のアスペクト比を保ちながらサイズ調整 */
   display: block; /* 画像をブロック要素にして中央寄せ */
