@@ -408,7 +408,7 @@ footer {
   .logo-area {
   display: flex;
   flex-direction: column;
-  padding: 10px 10px;   /* 左右均等に */
+  padding: 0px 0px;   /* 左右均等に */
   align-items: flex-start; /* 左寄せ */
 }
   .name-job {
@@ -432,7 +432,8 @@ footer {
   .tagline {
     font-size: 13px;
     text-align: left;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+    margin-top: 0px;
   }
 
   .hamburger {
