@@ -547,7 +547,7 @@ nav ul li a:hover::after {
     display: flex;
     justify-content: center;  /* 中身を横方向中央揃え */
     align-items: center;      /* 縦揃え（任意） */
-    padding: 30px 15px;
+    padding: 30px 13px;
     counter-reset: section-counter; /* セクションカウンターをリセット */
     background: #FAF8F4;      /* 薄緑背景 */
   }
@@ -558,7 +558,7 @@ nav ul li a:hover::after {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+  gap: 60px;    
 }
 
 /* テキストエリア */
@@ -573,7 +573,7 @@ nav ul li a:hover::after {
   width: 100%;
   max-width: 360px;        /* 制作実績と揃える */
   height: auto;
-  padding: 12px 10px;      /* 余白をバランスよく */
+  padding: 12px 15px;      /* 余白をバランスよく */
   background-color: #d9f3ea;
   border: 1px solid #5C4432;
   border-radius: 8px;
