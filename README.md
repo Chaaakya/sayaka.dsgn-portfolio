@@ -1,1 +1,1 @@
-# sayaka.dsgn-portfolio
+# sayaka.dsgn.portfolio
