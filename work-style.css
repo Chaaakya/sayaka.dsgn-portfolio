@@ -28,7 +28,10 @@ header {
   width: 100%; /* ヘッダーの横幅を画面いっぱいにする */
   z-index: 1000; /* 他の要素より前に表示されるようにする */
 }
-
+/* ハンバーガー初期状態（PCでは非表示） */
+.hamburger {
+  display: none;
+}
 /* ヘッダー内のナビゲーションメニューの設定（リスト） */
 nav ul {
   display: flex; /* メニュー項目を横並びにする */
@@ -163,36 +166,39 @@ nav ul a:hover::after {
 .works-section h3 {
   font-size: 14px; /* 少し小さめの見出し */
   color: #5C4432; /* 同じくこげ茶色 */
-  margin-bottom: 60px; /* 下にも余白をあける */
+  margin-bottom: 70px; /* 下にも余白をあける */
   font-weight: bold; /* 見出しを太字に */
 }
 
 /* ------------------- カテゴリーの設定 ------------------- */
 .category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 260px;
   margin-bottom: 60px;
-  text-align: center;
 }
-
-.category-buttons button {
-  background-color: #C5EBDD;       /* h4の薄緑背景と同じ */
-  color: #5C4432;                  /* こげ茶文字 */
-  border: 1px solid #C5EBDD;      /* h4の枠線と同じ */
-  width: 150px; /* 固定幅（必要に応じて調整） */
-  height: 50px; /* 固定高さで統一感 */
-  padding: 0 20px;
-  margin: 0 120px; /* ボタンの横幅調整 */
+.category-button {
+  background-color: #C5EBDD;
+  color: #5C4432;
+  width: 150px;
+  height: 50px;
   font-weight: bold;
-  border-radius: 8px;   /* 角丸 */
+  font-size: 16px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 18px;
+  text-align: center;
+  line-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   transition: background-color 0.3s, color 0.3s;
 }
-
-.category-buttons button:hover {
+.category-button:hover {
   background-color: #5C4432;       /* ホバー時は背景こげ茶 */
   color: #C5EBDD;                  /* 文字が薄緑に */
-  border-color: #5C4432;
 }
+
 /* スムーズスクロール設定 */
 html {
   scroll-behavior: smooth;
@@ -217,7 +223,7 @@ html {
   font-size: 14px;
   color: #5C4432;
   background-color: #C5EBDD;      /* ← 背景を削除 */
-  padding: 0px 20px ;            /* ← 内側余白も削除 */
+  padding: 2px 20px ;            /* ← 内側余白も削除 */
   height: auto;          /* ← 高さ制限も解除 */
   line-height: 1.5;     /* ← 行間を調整 */
   border-radius: 8px;   /* ← 角丸を追加 */
@@ -230,7 +236,7 @@ html {
   position: absolute;
   bottom: 0;
   left: 100%;
-  width: 1000px;
+  width: 1300px;
   height: 1px;
   background-color: #5C4432;
   transform: translateY(-50%);
@@ -332,18 +338,237 @@ footer {
 }
 /*-----------------------スマホサイズ--------------------------*/
 @media screen and (max-width: 768px) {
+
+  /* 全体設定 */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    background-color: #FAF8F4;
+    color: #5C4432;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* ハンバーガーメニュー */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1002;
+    background: transparent;
+    border: none;
+  }
+
+  .hamburger span {
+    height: 3px;
+    background-color: #5C4432;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* ナビゲーションメニュー */
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    padding: 16px;
+    background-color: #FAF8F4;
+    border: 1px solid #5C4432;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1001;
+  }
+
+  nav ul.active {
+    display: flex;
+    gap: 12px;
+  }
+
+  nav ul li a {
+    font-size: 13px;
+    font-weight: bold;
+    color: #5C4432;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 10px;
+    text-align: center;
+  }
+
+  nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    width: 80%;
+    height: 2px;
+    background-color: #2A5F4C;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #2A5F4C;
+  }
+
+  nav ul li a:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* プロフィールバー非表示 */
+  .profile-bar {
+    display: none;
+  }
+
+  /* WORKSタイトル・説明周り */
+  .works-section {
+  text-align: center;
+  padding: 50px 10px 0px;.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+  margin-bottom: 40px;
+}
+
+.works-section h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #5C4432;
+}
+
+.works-section h3 {
+  font-size: 12px;
+  color: #5C4432;
+  font-weight: bold;
+} 
+  
+/* カテゴリボタン（横並び強制） */
+.category-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 50px;
+    margin-bottom: 70px;
+  }
+
+.category-button {
+  width: 90px;
+    height: 40px;
+    font-size: 12px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-button:hover {
+  background-color: #5C4432;
+  color: #C5EBDD;
+}
+/* カテゴリ単品 */
+.work-category {
+  text-align: center;
+}
+
+.work-category > h4 {
+  margin: 0 auto 60px;
+}
+
+.work-category > h4 {
+    margin: center;
+    font-size: 12px;
+    width: auto;
+    background-color: #C5EBDD;
+    padding: 4px 0px;
+    border-radius: 8px;
+  }
+
+.work-category > h4::after {
+  display: none;
+}
+
+  /* 作品リスト */
   .works-item-wrap {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .work-item,
+  .work-item.placeholder,
+  .work-description {
+    width: 100%;
+    height: 100%;
+  }
+
+  .work-item img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
   }
 
   .work-description {
-    width: 90%;
+    font-size: 11px;
+    text-align: center;
   }
 
+  /* BACKボタン */
+  .back-button {
+    padding: 40px;
+    text-align: center;
+  }
+
+  .back-button a {
+    font-size: 14px;
+    padding: 8px 30px;
+    background-color: #C5EBDD;
+    color: #5C4432;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .back-button a:hover {
+    background-color: #5C4432;
+    color: #C5EBDD;
+  }
+
+  /* フッター */
   footer {
     padding: 20px;
     font-size: 9px;
+    background-color: #C5EBDD;
+    color: #5C4432;
+    text-align: center;
+  }
+
+  /* メインビジュアルなどの汎用画像調整 */
+  .mainvisual img {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #5C4432;
+    border-radius: 8px;
+  }
+
+  /* PC改行タグ非表示 */
+  .pc-br {
+    display: none;
   }
 }
