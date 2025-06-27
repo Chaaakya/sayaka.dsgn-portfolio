@@ -1,4 +1,411 @@
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+  marågin: 0;
+  background-color: #FAF8F4;
+  color: #5C4432;
+}
+/*ヘッター*/
 header {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 60px 20px; /* 上下に40px、左右に60pxの余白 */
+  background: #FAF8F4;
+}
+.logo-area {
+  line-height: 1.2; /* 行間を調整 */
+  padding-top: 5px; /* ロゴの上の余白 */
+}
+
+/* 想いをカタチにするシゴト */
+.tagline {
+  font-size: 25spx; 
+  color: #5C4432;
+  font-weight: bold;
+  margin-bottom: 0px; /* タグラインと名前の間のスペース */
+  margin-top: 0px; /* タグラインと名前の間のスペース */
+}
+/*Sayaka・Webデザイナー・コーダーの間隔*/
+.name-job {
+  display: flex;
+  align-items: baseline; /* 高さを文字の下の線で揃える */
+  gap: 20px; /* 文字間のスペース */
+}
+/* Sayaka tani */
+.logo-area h1 {
+  font-size: 45px; 
+  font-weight: bold;/*太文字*/
+}
+/*Webデザイナー・コーダー*/
+.logo-area .sub {
+  font-size: 16px;
+  font-weight: bold;
+}
+/*--------------------Main Visual-------------------------*/
+.mainvisual img {
+  width: 80%;
+  height: 900px; /* 高さを90%に設定 */
+  object-fit: cover; /* 画像のアスペクト比を保ちながらサイズ調整 */
+  display: block; /* 画像をブロック要素にして中央寄せ */
+  margin-bottom: 0; /* 不要な下余白をなくす */
+}
+/* デフォルトは非表示（PC） */
+.hamburger {
+  display: none;
+}
+/*--------------------ナビ-------------------------*/
+nav {
+  position: fixed; /* ヘッダーをページ上部に固定して、スクロールしても表示されるようにする */
+  top: 0; 
+  right: 0;
+  z-index: 1000; /* 他の要素より前に表示されるようにする */
+  font-size: 16px;
+}
+nav a { 
+  color: #5C4432; /*深緑色*/
+  font-weight: bold; /*太文字*/
+  text-align: center; /*中央揃え*/
+}
+/* ヘッダー内のナビゲーションメニューの設定（リスト） */
+nav ul {
+  display: flex; /* メニュー項目を横並びにする */
+  justify-content: flex-end; /* メニュー全体を右端に寄せる */
+  gap: 20px; /* メニュー項目の間に20pxの間隔をあける */
+  list-style: none; /* デフォルトの「・」マークを消す */
+  padding-top: 20px;
+  padding-right: 40px; /* 上下に20px、左右に40pxの内側余白をつける */
+}
+
+/* ナビゲーションリンク */
+nav ul a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #5C4432;
+  padding: 5px 10px;
+  font-weight: bold;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+/* 下線アニメーション */
+nav ul a::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  bottom: 0;
+  width: 80%;
+  height: 2px;
+  background-color: #2A5F4C; /* 下線の緑 */
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/* ホバー効果（文字色・下線） */
+nav ul a:hover {
+  color: #2A5F4C; /* 濃い緑に変化 */
+}
+
+nav ul a:hover::after {
+  transform: scaleX(1);
+}
+/*--------------------セクション見出しスタイル（共通）-------------------------*/
+/* ABOUT, WORKS, CONTACT のタイトル共通スタイル */
+.about-text h2, .works-section h2, .contact-section h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* 見出し下の区切り線 */
+.section-divider {
+  width: 150px;
+  height: 2px;
+  background-color: #5C4432;  /* こげ茶色 */
+  border: none;
+  margin: 0 auto 10px;        /* 中央寄せ＋下余白 */
+}
+
+/* 小見出し（例：私について） */
+.about-text h3, .works-section h3, .contact-section h3 {
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+/*-------------------- About セクション --------------------*/
+/* セクション全体の背景と余白 */
+.about-section {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;        /* 上下40px・左右20pxの余白 */
+  background: #d8f6eb;       /* 薄緑背景 */
+}
+
+/* コンテンツ全体の横並び配置（テキスト＋写真） */
+.about-container {
+  display: flex;
+  max-width: 1200px;
+  gap: 200px;   /* テキストと写真の間隔 */
+  align-items: center; /* 縦方向の中央揃え */
+}
+
+/* 自己紹介文エリア */
+.about-text {
+  flex: 1;
+  text-align: center; /* テキストを中央揃え */
+  padding: 0px 0px 60px; /* 上下の余白 */
+}
+
+.about-image {
+  flex-shrink: 0; /* 写真のサイズを固定 */
+}
+
+/* 自己紹介写真 */
+.about-image img {
+  width: 400px;
+  border-radius: 8px; /* 角を丸く */
+  margin: auto; /* 中央寄せ */
+}
+
+/* ----------------自己紹介ボックス内のデザイン ----------------*/
+/* 自己紹介文の外枠ボックス */
+.about-box {
+  background: #FAF8F4; /* 薄茶の背景 */
+  box-shadow: 5px 5px 5px rgba(92, 68, 50, 0.3); /* 影で浮かせる */
+  padding: 25px; /* 内側の余白 */
+  width: 500px; /* 固定幅 */
+  height: 450px; /* 固定高さ */
+  display: flex; /* フレックスボックスで配置 */
+  align-items: center; /* 中央揃え */
+  justify-content: center; /* 中央揃え */
+  margin: 0 auto; /* 中央寄せ */
+  border-radius: 8px;  /* 角を丸く */
+  border: 1px solid #5C4432; /* こげ茶の枠線 */
+}
+
+/* 全体テキストスタイル */
+.about-box p {
+  font-size: 16px;
+  line-height: 2; /* 行間を広くとって読みやすく */
+}
+/*-------------------- 自己紹介内の強調要素--------------------*/
+/* 名前を強調して表示 */
+.about-name {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  line-height: 1; /* ←行間も詰めたい場合は追加 */
+}
+
+/* “想いを届ける”など、信念や引用を強調 */
+.about-quote {
+  font-weight: bold;
+  font-size: 17px;
+  color: #2A5F4C; /* アクセントカラー（深緑） */
+}
+
+/*---------------work-------------------*/
+.works-section {
+  text-align: center;
+  padding: 40px 60px; /* 上下に40px、左右に60pxの余白 */
+  background: #FAF8F4; /*Worksベース薄茶*/
+  margin-bottom: 40px; /* 下の余白 */
+}
+
+.works-container {
+  display: flex;
+  flex-wrap: wrap; /* 複数行に折り返す */
+  justify-content: center;
+  gap: 40px 80px; /* 画像間の上下に40pxの余白、左右に135px */
+  margin-top: 60px;   /* 上のアイテムとの距離感 */
+  padding: 0 60px; /* 左右の余白を150pxに設定 */
+  max-width: 2000px; /* 横3つ分 + gap を制限 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.work-item img, .work-placeholder {
+  width: 400px;
+  height: 230px;
+  border: 1px solid #5C4432;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px; /* 角を丸く */
+  object-fit: cover; /* 画像のアスペクト比を保ちながらサイズ調整 */
+}
+/* プレースホルダー（Coming Soon背景） */
+.work-placeholder {
+  background: #ccc; /*プレースホルダーの背景色*/
+  border: 1px dashed #999;
+  position: relative;
+}
+
+/* 準備中テキストの位置とスタイル */
+.work-description {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #5C4432;
+}
+/* COMING SOON テキスト */
+.coming-soon {
+  color: #5C4432;
+  font-weight: bold;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+/* Moreリンク */
+.more-link {
+  margin-top: 60px;
+  text-align: center; /* 中央寄せに */
+}
+
+.more-link a {
+  display: inline-block;
+  background-color: #C5EBDD;       /* 薄緑背景（カテゴリーボタンと同じ） */
+  color: #5C4432;                  /* こげ茶文字 */
+  border: 1px solid #C5EBDD;      /* 薄緑の枠線 */
+  width: 150px;                   /* 固定幅 */
+  height: 50px;                   /* 固定高さ */
+  line-height: 50px;              /* 高さに合わせてテキスト垂直中央 */
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 8px;             /* 角丸 */
+  cursor: pointer;
+  text-align: center;             /* テキスト中央揃え */
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  user-select: none;
+  margin-bottom: 0px; /* 下の余白をなくす */
+}
+
+.more-link a:hover {
+  background-color: #5C4432;       /* ホバーでこげ茶背景 */
+  color: #C5EBDD;                  /* 文字は薄緑 */
+  border-color: #5C4432;
+  text-decoration: none;
+}
+
+/*-----------------------Contact--------------------------*/
+.contact-section {
+  padding: 30px 20px 100px;/*Contactの上・下幅*/
+  text-align: center;
+  background-color: #FAF8F4;/*Contactベース薄茶*/
+}
+/*問い合わせベース白色*/
+.contact-box {
+  background: #EDE6DA; /*問い合わせベース薄茶色*/
+  padding: 30px;/*問い合わせの上下幅*/
+  font-size: 14px; /*問い合わせの文字サイズ*/
+  border: 1px solid #5C4432; /*問い合わせの枠線*/
+  max-width: 600px;
+  margin: auto; /* 中央寄せ */
+  border-radius: 8px; /* 角を丸く */ 
+}
+/* 名前・メール・本文のフィールドを左寄せ */
+.contact-box .form-fields {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;/* 名前と説明文の距離 */
+  text-align: left;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* プライバシーポリシー同意部分だけ中央寄せ */
+.contact-box .privacy-agreement {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+/*項目分と四角の距離感*/
+.contact-box input,
+.contact-box select {
+  padding: 8px;/*項目分と四角の距離感*/
+  border: 1px solid #5C4432;
+  border-radius: 8px; /* 角を丸く */
+  background: #FAF8F4;
+}
+.contact-box textarea {
+  padding: 20px;
+  border: 1px solid #5C4432;
+  border-radius: 8px;
+  background: #FAF8F4;
+}
+/*送信ボタン*/
+.contact-box button {
+  margin-top: 10px;
+  padding: 5px 35px;
+  border: none; /* ボーダーなし */
+  background: #FAF8F4;
+  color: #5C4432; /* こげ茶色の文字 */
+  border-radius: 8px; /* 角を丸く */
+  cursor: pointer;
+  margin-bottom: 10px; /* ボタンの高さを調整 */
+
+}
+
+/* -------------------- 右下コンタクト固定ボタン -------------------- */
+.contact-floating {
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  border-radius: 12px;
+  padding: 10px 14px;
+  z-index: 1001;
+  text-align: center;
+}
+
+.contact-floating .contact-label {
+  font-size: 12px;
+  font-weight: bold;
+  color: #5C4432;
+  margin-bottom: 6px;
+}
+
+.contact-floating .contact-icons img {
+  width: 20px;
+  height: 20px;
+  margin: 0 4px;
+  vertical-align: middle;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;  /* カーソルをポインターに変更 */
+  filter: brightness(0) saturate(100%) invert(27%) sepia(16%) saturate(750%) hue-rotate(330deg);
+}
+
+.contact-floating .contact-icons img:hover {
+  transform: scale(1.2);
+  opacity: 0.7;
+}
+
+
+/* スマホでは非表示にする */
+@media screen and (max-width: 768px) {
+  .contact-floating {
+    display: none;
+  }
+}
+
+/*-----------------------Footer--------------------------*/
+footer {
+  padding: 10px;
+  background: #C5EBDD; /* フッターの背景色 */
+  width: 100%;
+  text-align: center;
+  font-size: 10px; 
+}
+/*-----------------------スマホサイズ--------------------------*/
+@media screen and (max-width: 768px) {
+  /* ロゴ横並びのまま、文字サイズだけ小さく */
+  body {
+    overflow-x: hidden;
+  }
+  header {
   display: flex;
   justify-content: flex-start;   /* 左寄せ */
   align-items: flex-start;       /* 上部に揃える */
@@ -48,4 +455,246 @@ header {
   font-weight: bold;
   margin: 0;
   text-align: left;
+}
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    /* 右上固定の設定 */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1002;
+    padding: 10px;
+  }
+
+  .hamburger span {
+    height: 3px;
+    background: #5C4432;
+    border-radius: 2px;
+  }
+
+  nav ul {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  padding: 0;              /* ← ここでリセット */
+  z-index: 1001;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+nav ul.active {
+  display: flex;
+  gap: 10px;
+  background-color: #ffffff;       /* 背景 */
+  border: 1px solid #5C4432;       /* 枠線 */
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+  nav {
+    position: static;
+  }
+  nav ul li a {
+  position: relative;
+  display: inline-block;
+  padding: 0px 0px;          /* テキストと下線の間隔 */
+  font-size: 11px;
+  color: #5C4432;
+  text-decoration: none;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;                    /* 下にぴったり */
+  width: 100%;
+  height: 0.8px;
+  background: #2A5F4C;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+
+nav ul li a:hover::after {
+  transform: scaleX(1);
+}
+  /*--------------------セクション見出しスタイル（共通）-------------------------*/
+/* メインビジュアル・スマホ画面幅に合わせて100% */
+  .mainvisual img {
+    width: 100%;          /* スマホ画面幅に合わせて100% */
+    height: auto;         /* 高さは画像の縦横比に合わせて自動 */
+    object-fit: cover;    /* はみ出し防止（元のCSSと同じ） */
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* セクションタイトル（h2）の文字サイズを縮小 */
+  .about-text h2,
+  .works-section h2,
+  .contact-section h2 {
+    font-size: 18px;       /* 28px → 22px に調整 */
+    margin-bottom: 8px;    /* 下の余白も少しだけ詰める */
+  }
+
+  /* 区切り線（下線）の長さと間隔を縮小 */
+  .section-divider {
+    width: 100px;          /* 150px → 100px */
+    margin: 0 auto 6px;    /* 少しだけ下の余白を減らす */
+  }
+
+  /* 小見出し（h3）も縮小 */
+  .about-text h3,
+  .works-section h3,
+  .contact-section h3 {
+    font-size: 11px;       /* 14px → 12px に縮小 */
+  }
+
+  /* ------- ABOUTセクション全体 ------- */
+  .about-section {
+    display: flex;
+    justify-content: center;  /* 中身を横方向中央揃え */
+    align-items: center;      /* 縦揃え（任意） */
+    padding: 30px 13px;
+    counter-reset: section-counter; /* セクションカウンターをリセット */
+    background: #FAF8F4;      /* 薄緑背景 */
+  }
+
+/* 写真とテキストを含むコンテナ */
+.about-container {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;    
+}
+
+/* テキストエリア */
+.about-text {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+/* 自己紹介ボックス */
+.about-box {
+  width: 100%;
+  max-width: 360px;        /* 制作実績と揃える */
+  height: auto;
+  padding: 12px 15px;      /* 余白をバランスよく */
+  background-color: #d9f3ea;
+  border: 1px solid #5C4432;
+  border-radius: 8px;
+  box-shadow: 3px 3px 6px rgba(92, 68, 50, 0.2);
+  margin: 0 auto;
+  box-sizing: border-box; /* padding含めて幅計算 */
+}
+
+/* ボックス内テキスト */
+.about-box p {
+  font-size: 11px;
+  line-height: 1.7;   /* 行間を広めに */
+  padding: 0 0;         /* 内側の余白もなくす */
+}
+
+/* 名前 */
+.about-name {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+/* 引用・信念の部分 */
+.about-quote {
+  font-size: 11px;
+  color: #2A5F4C;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 5px;
+}
+
+/* 写真はスマホでは非表示 */
+.about-image {
+  display: none;
+}
+
+/* ------- WORKSセクションの縮小 ------- */
+.works-section {
+  padding: 30px 20px; /* 全体の余白を縮小 */
+}
+
+  .works-container {
+    padding: 0 20px;         /* 左右余白なし */
+    gap: 30px;          /* アイテム同士の間隔を縮小 */
+  }
+
+.work-item {
+  margin: 0 20px; /* 左右に余白（必要に応じて調整） */
+  transform: scale(0.9); /* 縮小表示：90% */
+  transform-origin: center center; /* 中央を基準に縮小 */
+  transition: transform 0.3s ease; /* ホバー時などのなめらかさ */
+}
+
+  /* ------- 準備中の作品（Coming Soon）を非表示 ------- */
+  .work-item .work-placeholder {
+    display: none; /* グレーのダミー画像を非表示 */
+  }
+
+  /* .coming-soon を含む説明文も非表示（保険） */
+  .work-description:has(.coming-soon) {
+    display: none;
+  }
+
+  /* 順番指定で準備中のボックス全体をまとめて非表示（互換性保証） */
+  .work-item:nth-child(2),
+  .work-item:nth-child(3),
+  .work-item:nth-child(4),
+  .work-item:nth-child(5),
+  .work-item:nth-child(6) {
+    display: none;
+  }
+
+  /* ------- MOREリンクも非表示にする ------- */
+  .more-link {
+    display: none;
+  }
+
+  /* ------- CONTACTセクション ------- */
+  .contact-section {
+    padding: 10px 0px 60px;
+  }
+
+  .contact-box {
+    margin-top: 40px;
+    padding: 10px;
+    max-width: 85%;
+    font-size: 12px;
+  }
+
+  .contact-box .form-fields {
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .contact-box input,
+  .contact-box textarea,
+  .contact-box select {
+    font-size: 12px;
+  }
+
+  .contact-box button {
+    font-size: 12px;
+    padding: 5px 15px;
+  }
 }
