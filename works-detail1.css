@@ -20,6 +20,10 @@ header {
   width: 100%; /* ヘッダーの横幅を画面いっぱいにする */
   z-index: 1000; /* 他の要素より前に表示されるようにする */
 }
+/* ハンバーガー初期状態（PCでは非表示） */
+.hamburger {
+  display: none;
+}
 
 /* ヘッダー内のナビゲーションメニューの設定（リスト） */
 nav ul {
@@ -217,9 +221,9 @@ nav ul a:hover::after {
 }
 
 .overview-left img {
+  display: block; /* 画像をブロック要素にして中央寄せ */
   width: 300px;
-  hight: 680px;
-  display: block;
+  height: 680px;/* サイトかするときのバランスが変わるに */
   border: #5C4432 1px solid; /* 画像の枠線をこげ茶色に */
   border-radius: 8px; /* 角を丸く */
   margin-left: 120px; /* 左側の余白を追加 */
@@ -244,7 +248,7 @@ nav ul a:hover::after {
   line-height: 1.8;
   padding-top: 0px;
 }
-/*-------------------- 自己紹介内の強調要素--------------------*/
+/*-------------------- 紹介内の強調要素--------------------*/
 /* conseptを強調して表示 */
 .overview-massage {
   font-size: 14px;
@@ -260,6 +264,11 @@ nav ul a:hover::after {
   color: #2A5F4C; /* アクセントカラー（深緑） */
   line-height: 1; /* ←行間も詰めたい場合は追加 */
 }
+/* 通常はPC向け改行を表示 */
+.pc-br {
+  display: inline;
+}
+
 /* ------------------- BACKボタン ------------------- */
 .back-button {
   text-align: center;
@@ -287,16 +296,228 @@ footer {
 }
 /*-----------------------スマホサイズ--------------------------*/
 @media screen and (max-width: 768px) {
-  .works-item-wrap {
+  /* ページ全体の基本設定 */
+  html,body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  header {
+  display: flex;
+  justify-content: flex-start;   /* 左寄せ */
+  align-items: flex-start;       /* 上部に揃える */
+  position: relative;
+  z-index: 1000;
+}
+  /* ハンバーガー表示設定 */
+   .hamburger {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 40px;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    /* 右上固定の設定 */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1002;
+    padding: 10px;
   }
 
-  .work-description {
+  .hamburger span {
+    height: 3px;
+    background: #5C4432;
+    border-radius: 2px;
+  }
+
+  nav ul {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  padding: 0;              /* ← ここでリセット */
+  z-index: 1001;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+nav ul.active {
+  display: flex;
+  gap: 10px;
+  background-color: #ffffff;       /* 背景 */
+  border: 1px solid #5C4432;       /* 枠線 */
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+  nav {
+    position: static;
+  }
+  nav ul li a {
+  position: relative;
+  display: inline-block;
+  padding: 0px 0px;          /* テキストと下線の間隔 */
+  font-size: 11px;
+  color: #5C4432;
+  text-decoration: none;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;                    /* 下にぴったり */
+  width: 100%;
+  height: 0.8px;
+  background: #2A5F4C;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+
+nav ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+  /* メイン背景の高さを自動に（固定だとはみ出しの原因に） */
+  .main-top-area {
+    height: auto;
+  }
+
+  /* WORKSタイトル・説明周り */
+  .works {
+    padding: 50px 10px 30px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+    margin-bottom: 30px;
+  }
+
+  .project-title {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  /* メイン画像のサイズ調整 */
+  .mainvisual img {
     width: 90%;
   }
 
+  /* サイトリンク */
+  .site-link-wrapper {
+    padding-top: 20px;
+  }
+
+  .site-link {
+    font-size: 12px;
+  }
+
+  .site-link a {
+    font-size: 12px;
+    word-break: break-word;
+  }
+
+  /* 制作情報ボックス */
+  .info-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0px;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 30px;
+  }
+
+  /* 上2つ：横並び（50%ずつ） */
+  .info-boxes .info-box:nth-child(1),
+  .info-boxes .info-box:nth-child(2) {
+    width: calc(50% - 0px);
+    background-color: #C5EBDD;
+    font-size: 12px;
+    text-align: center;
+  }
+  .info-boxes .info-box:nth-child(1) {
+    padding: 10px 0; /* 上下の余白を調整 */
+    border-top-left-radius: 8px; /* 左上 */
+    border-top-right-radius: 0px; /* 右上 */
+    border-bottom-left-radius: 0px; /* 左下（丸めない） */
+    border-bottom-right-radius: 0px;/* 右下（丸めない） */
+  }
+  .info-boxes .info-box:nth-child(2) {
+    padding: 10px 0; /* 上下の余白を調整 */
+    border-top-left-radius: 0px;    /* 左上（丸めない） */
+    border-top-right-radius: 8px;   /* 右上（丸めない） */
+    border-bottom-left-radius: 0px; /* 左下 */
+    border-bottom-right-radius: 0px;/* 右下 */
+  }
+
+  /* 下の1つ：100%幅 */
+  .info-boxes .info-box:nth-child(3) {
+    width: 100%;
+    background-color: #C5EBDD;
+    padding: 10px;
+    border-top-left-radius: 0px;    /* 左上 */
+    border-top-right-radius: 0px;   /* 右上 */
+    border-bottom-left-radius: 8px; /* 左下（丸めない） */
+    border-bottom-right-radius: 8px;/* 右下（丸めない） */
+    font-size: 12px;
+    text-align: center;
+  }
+
+  /* 概要セクションを縦並びに */
+  .overview {
+    flex-direction: column;
+    margin: 0;
+    gap: 0px;
+  }
+
+  .overview-left img {
+   display: none; /* スマホでは画像を非表示に */
+  }
+
+  .overview-right {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .overview-right h4 {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  .overview-right p {
+    font-size: 11.5px;
+    line-height: 1.7;
+  }
+
+  .overview-massage,
+  .overview-aim {
+    font-size: 11.5px;
+  }
+
+  .pc-br {
+    display: none;
+  }
+
+  /* BACKボタン */
+  .back-button {
+    margin: 40px 0 60px;
+  }
+
+  .back-button a {
+    font-size: 14px;
+    padding: 8px 30px;
+  }
+
+  /* フッター */
   footer {
     padding: 20px;
     font-size: 9px;
