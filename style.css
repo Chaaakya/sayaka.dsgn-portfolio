@@ -543,7 +543,6 @@ nav ul li a:hover::after {
   }
 
   /* ------- ABOUTセクション全体 ------- */
-  /* Aboutセクション全体の配置設定 */
   .about-section {
     display: flex;
     justify-content: center;  /* 中身を横方向中央揃え */
@@ -553,23 +552,24 @@ nav ul li a:hover::after {
     background: #FAF8F4;      /* 薄緑背景 */
   }
 
-  /* 写真とテキストを含むコンテナ */
-  .about-container {
-    flex-direction: row;       /* 横並び */
-    flex-wrap: wrap;           /* 狭い画面で折り返し可 */
-    justify-content: center;   /* 中央に寄せる */
-    align-items: center;       /* 高さ方向も揃える */
-    gap: 60px;                 /* 写真と説明文の間隔を縮小 */
-  }
+/* 写真とテキストを含むコンテナ */
+.about-container {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
 
-  /* テキスト側の設定 */
-  .about-text {
-    flex: 1;
-    min-width: 0;
-    text-align: center; /* スマホでは中央寄せ */
-    size: 12px; /* 全体的に1段階小さく */
-  }
-   .about-box {
+/* テキストエリア */
+.about-text {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+/* 自己紹介ボックス */
+.about-box {
   width: 100%;
   max-width: 360px;        /* 制作実績と揃える */
   height: auto;
@@ -581,55 +581,40 @@ nav ul li a:hover::after {
   margin: 0 auto;
   box-sizing: border-box; /* padding含めて幅計算 */
 }
+
+/* ボックス内テキスト */
 .about-box p {
-  font-size: 12px;
-  line-height: 1.7;
+  font-size: 11px;
+  line-height: 1.7;   /* 行間を広めに */
+  padding: 0 0;         /* 内側の余白もなくす */
 }
+
+/* 名前 */
 .about-name {
-  font-size: 13px;
-  margin-bottom: 0px; /* 名前と引用の間隔を詰める */
-}
-.about-quote {
   font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0px;
 }
 
-  /* 写真エリアの設定 */
-  .about-image {
-    display: none;
-  }
+/* 引用・信念の部分 */
+.about-quote {
+  font-size: 11px;
+  color: #2A5F4C;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 5px;
+}
 
-  /* 自己紹介文が入った白ボックスの設定 */
-  .about-box {
-    width: 100%;               /* 横幅はスマホに合わせて100% */
-    max-width: 350px;          /* 最大幅の制限をつけて読みやすさ確保 */
-    height: auto;              /* 高さは内容に応じて可変に */
-    padding: 10px;             /* 内側の余白を少し詰める */
-    background-color: #d9f3ea;
-  }
+/* 写真はスマホでは非表示 */
+.about-image {
+  display: none;
+}
 
-  /* 説明文の文字サイズや行間を調整して読みやすく */
-  .about-box p {
-    font-size: 11px;           /* 全体的に1段階小さく */
-    line-height: 1.8;          /* 行間をやや広めにして読みやすく */
-  }
-
-  /* 名前部分の文字サイズも少しだけ縮小 */
-  .about-name {
-    font-size: 12.5px;
-    font-weight: bold;         /* 太字は維持 */
-    text-align: center; /* スマホでは中央寄せ */
-  
-  }
-
-  /* 引用部分（“想いを届ける”など）も縮小 */
-  .about-quote {
-    font-size: 11px;
-  }
-
-   /* ------- WORKSセクションの縮小 ------- */
-  .works-section {
-    padding: 30px 20px; /* 全体の余白を縮小 */
-  }
+/* ------- WORKSセクションの縮小 ------- */
+.works-section {
+  padding: 30px 20px; /* 全体の余白を縮小 */
+}
 
   .works-container {
     padding: 0 20px;         /* 左右余白なし */
