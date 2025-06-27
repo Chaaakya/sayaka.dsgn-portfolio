@@ -402,8 +402,9 @@ footer {
 /*-----------------------スマホサイズ--------------------------*/
 @media screen and (max-width: 768px) {
   /* ロゴ横並びのまま、文字サイズだけ小さく */
-  body {
+  html,body {
     overflow-x: hidden;
+    width: 100%;
   }
   header {
   display: flex;
