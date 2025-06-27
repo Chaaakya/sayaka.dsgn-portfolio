@@ -297,38 +297,32 @@ footer {
 /*-----------------------スマホサイズ--------------------------*/
 @media screen and (max-width: 768px) {
   /* ページ全体の基本設定 */
-  html,body {
-    overflow-x: hidden;
-    width: 100%;
-  }
-  header {
-  display: flex;
-  justify-content: flex-start;   /* 左寄せ */
-  align-items: flex-start;       /* 上部に揃える */
-  position: relative;
-  z-index: 1000;
+  html, body {
+  overflow-x: hidden; /* 横スクロール防止 */
+  width: 100%;        /* ブラウザ幅に合わせる */
 }
+  
   /* ハンバーガー表示設定 */
-   .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 22px;
-    cursor: pointer;
-    /* 右上固定の設定 */
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1002;
-    padding: 10px;
-  }
+ .hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1002;
+  padding: 10;
+  background: transparent;  /* 背景を透明に */
+  border: none; /* ボタンの背景を透明に */
+}
 
-  .hamburger span {
-    height: 3px;
-    background: #5C4432;
-    border-radius: 2px;
-  }
+.hamburger span {
+  height: 3px;
+  background-color: #5C4432;
+  border-radius: 2px; /* 角を丸く */
+}
 
   nav ul {
   display: none;
@@ -389,7 +383,7 @@ nav ul li a:hover::after {
 
   /* WORKSタイトル・説明周り */
   .works {
-    padding: 50px 10px 30px;
+    padding: 50px 10px 20px;
   }
 
   .section-title {
