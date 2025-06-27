@@ -9,6 +9,12 @@
 <body>
   <!-- ヘッダー -->
   <header>
+    <!-- ハンバーガーメニュー（スマホだけ表示） -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     <nav>
       <ul>
         <li><a href="index.html#top">HOME</a></li>
@@ -53,9 +59,9 @@
 
     <!--カテゴリボタン -->
 <div class="category-buttons">
-  <a href="#hp"><button>HP制作</button></a>
-  <a href="#lp"><button>LP制作</button></a>
-  <a href="#banner"><button>バナー制作</button></a>
+  <a href="#hp" class="category-button">HP制作</a>
+  <a href="#lp" class="category-button">LP制作</a>
+  <a href="#banner" class="category-button">バナー制作</a>
 </div>
 
   <!-- WORKS一覧セクション -->
@@ -129,4 +135,12 @@
       </div>
     </footer>
   </body>
+  <script>
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.querySelector("nav ul");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+</script>
 </html>
