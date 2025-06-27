@@ -589,9 +589,9 @@ nav ul li a:hover::after {
 /* 自己紹介ボックス */
 .about-box {
   width: 100%;
-  max-width: 360px;        /* 制作実績と揃える */
+  max-width: 370px;        /* 制作実績と揃える */
   height: auto;
-  padding: 12px 15px;      /* 余白をバランスよく */
+  padding: 12px 10px;      /* 余白をバランスよく */
   background-color: #d9f3ea;
   border: 1px solid #5C4432;
   border-radius: 8px;
