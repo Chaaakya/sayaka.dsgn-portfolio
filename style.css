@@ -42,8 +42,8 @@ header {
 }
 /*--------------------Main Visual-------------------------*/
 .mainvisual img {
-  width: 100%;
-  height: 100%; /* 高さを90%に設定 */
+  width: 80%;
+  height: 900px; /* 高さを90%に設定 */
   object-fit: cover; /* 画像のアスペクト比を保ちながらサイズ調整 */
   display: block; /* 画像をブロック要素にして中央寄せ */
   margin-bottom: 0; /* 不要な下余白をなくす */
@@ -567,8 +567,28 @@ nav ul li a:hover::after {
     size: 12px; /* 全体的に1段階小さく */
   }
    .about-box {
-    max-width: 250px;
-  }
+  width: 100%;
+  max-width: 360px;        /* 制作実績と揃える */
+  height: auto;
+  padding: 12px 20px;      /* 余白をバランスよく */
+  background-color: #d9f3ea;
+  border: 1px solid #5C4432;
+  border-radius: 8px;
+  box-shadow: 3px 3px 6px rgba(92, 68, 50, 0.2);
+  margin: 0 auto;
+  box-sizing: border-box; /* padding含めて幅計算 */
+}
+.about-box p {
+  font-size: 12px;
+  line-height: 1.7;
+}
+.about-name {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.about-quote {
+  font-size: 12px;
+}
 
   /* 写真エリアの設定 */
   .about-image {
