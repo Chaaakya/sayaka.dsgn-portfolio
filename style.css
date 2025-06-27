@@ -632,7 +632,7 @@ nav ul li a:hover::after {
 
 /* ------- WORKSセクションの縮小 ------- */
 .works-section {
-  padding: 30px 20px; /* 全体の余白を縮小 */
+  padding: 0px 20px 0px; /* 全体の余白を縮小 */
 }
 
   .works-container {
