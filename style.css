@@ -234,12 +234,28 @@ nav ul a:hover::after {
   align-items: center;
   border-radius: 8px; /* 角を丸く */
   object-fit: cover; /* 画像のアスペクト比を保ちながらサイズ調整 */
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+   cursor: pointer;
 }
 /* プレースホルダー（Coming Soon背景） */
 .work-placeholder {
   background: #ccc; /*プレースホルダーの背景色*/
   border: 1px dashed #999;
   position: relative;
+}
+
+/* ホバー時：影を強調＋枠線を深緑に変化 */
+.work-item a img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+  box-shadow: 0 6px 12px rgba(92, 68, 50, 0.35);
+  border: 2px solid #2A5F4C; /* ← ここがポイント！ */
+}
+
+/* クリック時（押してる感じ） */
+.work-item a img:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(92, 68, 50, 0.2);
 }
 
 /* 準備中テキストの位置とスタイル */
@@ -403,8 +419,8 @@ footer {
 @media screen and (max-width: 768px) {
   /* ロゴ横並びのまま、文字サイズだけ小さく */
   html,body {
-    overflow-x: hidden;
-    width: 100%;
+    overflow-x: hidden;/* 横スクロール防止 */
+    width: 100%;/* ブラウザ幅に合わせる */
   }
   header {
   display: flex;
@@ -635,9 +651,9 @@ nav ul li a:hover::after {
   padding: 0px 20px 0px; /* 全体の余白を縮小 */
 }
 
-  .works-container {
-    padding: 0 20px;         /* 左右余白なし */
-    gap: 30px;          /* アイテム同士の間隔を縮小 */
+.works-container {
+  padding: 0 20px;         /* 左右余白なし */
+  gap: 30px;          /* アイテム同士の間隔を縮小 */
   }
 
 .work-item {
@@ -645,6 +661,27 @@ nav ul li a:hover::after {
   transform: scale(0.9); /* 縮小表示：90% */
   transform-origin: center center; /* 中央を基準に縮小 */
   transition: transform 0.3s ease; /* ホバー時などのなめらかさ */
+}
+
+/* 初期状態：やさしい影 */
+.work-item a img {
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(92, 68, 50, 0.2); /* 柔らかい茶系の影 */
+  border-radius: 8px;
+}
+
+/* ホバー時：影を濃く、サイズも拡大 */
+.work-item a img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+  box-shadow: 0 6px 12px rgba(92, 68, 50, 0.35); /* 濃くて広い影 */
+}
+
+/* クリック時（押してる感じ） */
+.work-item a img:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(92, 68, 50, 0.2); /* 影を小さく */
 }
 
   /* ------- 準備中の作品（Coming Soon）を非表示 ------- */
