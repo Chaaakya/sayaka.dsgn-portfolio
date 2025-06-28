@@ -276,21 +276,42 @@ html {
   flex-direction: column;
   align-items: center;
 }
-/* 画像 */
-.work-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 画像のアスペクト比を保ちながらボックスに収める */
-  display: block;
-}
-/* 説明文を中央に、画像の外に */
-.work-description {
+
+/* 画像ありの .work-item 本体に適用 */
+.work-item:not(.placeholder) {
   width: 450px;
-  text-align: center;
-  font-size: 16px;
-  color: #5C4432;
-  margin-top: 10px;
+  height: 280px;
+  border: 1px solid #5C4432;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FAF8F4;
 }
+
+.work-item:not(.placeholder) img {
+  width: 90%;              /* 画像の横幅を小さめに */
+  height: auto;            /* アスペクト比を保つ */
+  object-fit: contain;     /* 枠内に収める */
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  cursor: pointer;
+}
+
+/* ホバー時（画像付きのみ） */
+.work-item:not(.placeholder):hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(92, 68, 50, 0.35);
+  border: 2px solid #2A5F4C;
+}
+
+/* クリック時 */
+.work-item:not(.placeholder):active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(92, 68, 50, 0.2);
+}
+
 .work-item.placeholder {
   background-color: #ccc; /* プレースホルダーの背景色 */
   border: 1px dashed #999;
@@ -299,6 +320,17 @@ html {
   height: 280px; /* 高さを固定 */
   border-radius: 8px; /* 角を丸く */
 }
+
+/* 説明文を中央に、画像の外に */
+.work-description {
+  width: 450px;
+  text-align: center;
+  font-size: 16px;
+  color: #5C4432;
+  margin-top: 20px;
+}
+
+
 
 /* COMING SOON テキスト */
 .coming-soon {
@@ -347,7 +379,7 @@ footer {
   }
 
   * {
-    box-sizing: border-box;
+    box-sizing: border-box; 
   }
 
   /* ハンバーガーメニュー */
