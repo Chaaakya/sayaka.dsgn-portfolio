@@ -278,7 +278,7 @@ nav ul a:hover::after {
 /* Moreリンク */
  .more-link {
   text-align: center;
-  margin: 40px 0 120px;
+  margin: 100px 0 0px;
 }
 
 .more-link a {
