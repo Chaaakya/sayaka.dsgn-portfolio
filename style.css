@@ -276,28 +276,21 @@ nav ul a:hover::after {
   text-align: center;
 }
 /* Moreリンク */
-.more-link {
-  margin-top: 60px;
-  text-align: center; /* 中央寄せに */
+ .more-link {
+  text-align: center;
+  margin: 40px 0 120px;
 }
 
 .more-link a {
   display: inline-block;
-  background-color: #C5EBDD;       /* 薄緑背景（カテゴリーボタンと同じ） */
-  color: #5C4432;                  /* こげ茶文字 */
-  border: 1px solid #C5EBDD;      /* 薄緑の枠線 */
-  width: 150px;                   /* 固定幅 */
-  height: 50px;                   /* 固定高さ */
-  line-height: 50px;              /* 高さに合わせてテキスト垂直中央 */
-  font-weight: bold;
-  font-size: 18px;
-  border-radius: 8px;             /* 角丸 */
-  cursor: pointer;
-  text-align: center;             /* テキスト中央揃え */
+  background-color: #C5EBDD;
+  color: #5C4432;
   text-decoration: none;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  user-select: none;
-  margin-bottom: 0px; /* 下の余白をなくす */
+  font-weight: bold;
+  padding: 10px 40px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .more-link a:hover {
@@ -703,9 +696,13 @@ nav ul li a:hover::after {
     display: none;
   }
 
-  /* ------- MOREリンクも非表示にする ------- */
+  /* ------- MOREリンク------- */
   .more-link {
-    display: none;
+    margin: 40px 0px 0px;
+  }
+
+  .more-link a {
+    font-size: 11px;
   }
 
   /* ------- CONTACTセクション ------- */
