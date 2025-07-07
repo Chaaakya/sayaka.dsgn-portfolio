@@ -284,6 +284,12 @@ nav ul a:hover::after {
   padding: 10px 40px;
   border-radius: 8px;
   font-size: 16px;
+  transition: background-color 0.3s, color 0.3s; /* ← アニメーションを追加 */
+}
+
+.back-button a:hover {
+  background-color: #5C4432;
+  color: #C5EBDD;
 }
 
 /*-----------------------Footer--------------------------*/
