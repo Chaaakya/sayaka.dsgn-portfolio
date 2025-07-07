@@ -138,7 +138,7 @@ nav ul a:hover::after {
   display: flex;
   justify-content: center;
   padding: 40px 20px;        /* 上下40px・左右20pxの余白 */
-  background: #d8f6eb;       /* 薄緑背景 */
+  background: #FAF8F4;       /* 薄緑背景 */
 }
 
 /* コンテンツ全体の横並び配置（テキスト＋写真） */
@@ -170,7 +170,7 @@ nav ul a:hover::after {
 /* ----------------自己紹介ボックス内のデザイン ----------------*/
 /* 自己紹介文の外枠ボックス */
 .about-box {
-  background: #FAF8F4; /* 薄茶の背景 */
+  background: #d8f6eb;       /* 薄緑背景 */
   box-shadow: 5px 5px 5px rgba(92, 68, 50, 0.3); /* 影で浮かせる */
   padding: 25px; /* 内側の余白 */
   width: 500px; /* 固定幅 */
